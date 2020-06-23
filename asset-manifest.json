@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/asset-manager/static/css/main.b3de2453.chunk.css",
+    "main.js": "/asset-manager/static/js/main.b0938315.chunk.js",
+    "main.js.map": "/asset-manager/static/js/main.b0938315.chunk.js.map",
+    "runtime-main.js": "/asset-manager/static/js/runtime-main.89462d6c.js",
+    "runtime-main.js.map": "/asset-manager/static/js/runtime-main.89462d6c.js.map",
+    "static/js/2.ef715418.chunk.js": "/asset-manager/static/js/2.ef715418.chunk.js",
+    "static/js/2.ef715418.chunk.js.map": "/asset-manager/static/js/2.ef715418.chunk.js.map",
+    "index.html": "/asset-manager/index.html",
+    "precache-manifest.57cb7aa70ec3bd26f821bcce66be9883.js": "/asset-manager/precache-manifest.57cb7aa70ec3bd26f821bcce66be9883.js",
+    "service-worker.js": "/asset-manager/service-worker.js",
+    "static/css/main.b3de2453.chunk.css.map": "/asset-manager/static/css/main.b3de2453.chunk.css.map",
+    "static/js/2.ef715418.chunk.js.LICENSE.txt": "/asset-manager/static/js/2.ef715418.chunk.js.LICENSE.txt",
+    "static/media/drill.jpg": "/asset-manager/static/media/drill.b0b36b5b.jpg",
+    "static/media/generator.jpg": "/asset-manager/static/media/generator.07aba8e5.jpg",
+    "static/media/ladder.jpg": "/asset-manager/static/media/ladder.8d76d8c5.jpg",
+    "static/media/snake.jpg": "/asset-manager/static/media/snake.8470ec52.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.89462d6c.js",
+    "static/js/2.ef715418.chunk.js",
+    "static/css/main.b3de2453.chunk.css",
+    "static/js/main.b0938315.chunk.js"
+  ]
+}
