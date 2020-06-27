@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from './cctv-components/menu/menu.component';
-import { Asset } from './cctv-components/asset/asset.component';
+import { AssetsContainer } from './cctv-components/assets-container/assets-container.component';
 import './App.css';
 
 
@@ -17,7 +17,7 @@ class App extends Component {
     <div className='App'>
         <Menu />
         <div className='main'>
-          <Asset/>
+          <AssetsContainer/>
         </div>
     </div>
     )
