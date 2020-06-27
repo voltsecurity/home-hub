@@ -5,5 +5,5 @@
     grid-row: span 2;
     border-right: 1px solid #134f5f;
     border-bottom: 1px solid #134f5f;
-    z-index: 1;
+    z-index: 3;
 }
