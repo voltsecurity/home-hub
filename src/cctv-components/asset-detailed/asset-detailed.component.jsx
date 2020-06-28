@@ -13,10 +13,11 @@ export const AssetDetailed = ({ item }) => (
             </div>
         </div>
         <div className='details'>
-            <div>
-            <p>IP Address</p>
-            <p>{item.ipAddress}</p>
+            <div className='detailBox'>
+                <span className='subtitle'><strong>IP Address<strong/></strong></span>
+                <span className='subvalue'>{item.ipAddress}</span>
             </div>
+
         </div>
     </div>
 )
