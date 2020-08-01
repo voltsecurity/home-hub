@@ -1,8 +1,9 @@
 import React from 'react';
 import './card.styles.css';
+import { withRouter } from 'react-router-dom';
 
-export const Card = ({ item, id, onRouteChange }) => (
-    <div id={id} className='card' onClick={() => onRouteChange(id)}>
+const Card = ({ item, id, handleClick, history, match }) => (
+    <div id={id} className='card' onClick={() => handleClick(item, history, match)}>
         <img src={item.imageUrl} alt="item" />
         <h3 className='cameraid'>{item.cameraID}</h3>
         <h3>{item.model}</h3>
@@ -13,3 +14,5 @@ export const Card = ({ item, id, onRouteChange }) => (
         {/* <p>{item.model}</p> */}
     </div>
 )
+
+export default withRouter(Card);

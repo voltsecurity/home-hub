@@ -1,5 +1,8 @@
 .container {
-    position: relative;
     height: 100vh;
     z-index: 0;
+}
+
+.asset-container-box {
+    height: 100%;
 }
