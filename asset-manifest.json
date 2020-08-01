@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/asset-manager/static/css/main.aa1f1f56.chunk.css",
-    "main.js": "/asset-manager/static/js/main.4ac3c79b.chunk.js",
-    "main.js.map": "/asset-manager/static/js/main.4ac3c79b.chunk.js.map",
+    "main.js": "/asset-manager/static/js/main.d96ffa0d.chunk.js",
+    "main.js.map": "/asset-manager/static/js/main.d96ffa0d.chunk.js.map",
     "runtime-main.js": "/asset-manager/static/js/runtime-main.89462d6c.js",
     "runtime-main.js.map": "/asset-manager/static/js/runtime-main.89462d6c.js.map",
     "static/js/2.0a2c9f63.chunk.js": "/asset-manager/static/js/2.0a2c9f63.chunk.js",
     "static/js/2.0a2c9f63.chunk.js.map": "/asset-manager/static/js/2.0a2c9f63.chunk.js.map",
     "index.html": "/asset-manager/index.html",
-    "precache-manifest.3dabcd7c629612bb367b91e8b1c6d430.js": "/asset-manager/precache-manifest.3dabcd7c629612bb367b91e8b1c6d430.js",
+    "precache-manifest.0b4d8b953f3bbab56e29dcecf08e077a.js": "/asset-manager/precache-manifest.0b4d8b953f3bbab56e29dcecf08e077a.js",
     "service-worker.js": "/asset-manager/service-worker.js",
     "static/css/main.aa1f1f56.chunk.css.map": "/asset-manager/static/css/main.aa1f1f56.chunk.css.map",
     "static/js/2.0a2c9f63.chunk.js.LICENSE.txt": "/asset-manager/static/js/2.0a2c9f63.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.89462d6c.js",
     "static/js/2.0a2c9f63.chunk.js",
     "static/css/main.aa1f1f56.chunk.css",
-    "static/js/main.4ac3c79b.chunk.js"
+    "static/js/main.d96ffa0d.chunk.js"
   ]
 }
