@@ -22,7 +22,7 @@ class App extends Component {
         <Menu />
         <div className='main'>
           <Switch>
-            <Route path='/assets' component={AssetHomepage} />
+            <Route path='asset-manager/assets' component={AssetHomepage} />
             <Route path=''>404</Route>
           </Switch>
         </div>
