@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/asset-manager/static/css/main.b2447ebf.chunk.css",
-    "main.js": "/asset-manager/static/js/main.7d0bc02e.chunk.js",
-    "main.js.map": "/asset-manager/static/js/main.7d0bc02e.chunk.js.map",
+    "main.css": "/asset-manager/static/css/main.b148a327.chunk.css",
+    "main.js": "/asset-manager/static/js/main.76d0459d.chunk.js",
+    "main.js.map": "/asset-manager/static/js/main.76d0459d.chunk.js.map",
     "runtime-main.js": "/asset-manager/static/js/runtime-main.89462d6c.js",
     "runtime-main.js.map": "/asset-manager/static/js/runtime-main.89462d6c.js.map",
     "static/js/2.f56959cd.chunk.js": "/asset-manager/static/js/2.f56959cd.chunk.js",
     "static/js/2.f56959cd.chunk.js.map": "/asset-manager/static/js/2.f56959cd.chunk.js.map",
     "index.html": "/asset-manager/index.html",
-    "precache-manifest.66a14b3c00191e89c440b447e3a5a100.js": "/asset-manager/precache-manifest.66a14b3c00191e89c440b447e3a5a100.js",
+    "precache-manifest.aaa3b15998c9eff06fae32eb7c8eb2b4.js": "/asset-manager/precache-manifest.aaa3b15998c9eff06fae32eb7c8eb2b4.js",
     "service-worker.js": "/asset-manager/service-worker.js",
-    "static/css/main.b2447ebf.chunk.css.map": "/asset-manager/static/css/main.b2447ebf.chunk.css.map",
+    "static/css/main.b148a327.chunk.css.map": "/asset-manager/static/css/main.b148a327.chunk.css.map",
     "static/js/2.f56959cd.chunk.js.LICENSE.txt": "/asset-manager/static/js/2.f56959cd.chunk.js.LICENSE.txt",
     "static/media/hikvision1.jpeg": "/asset-manager/static/media/hikvision1.0fa840e7.jpeg",
     "static/media/hikvision3.jpeg": "/asset-manager/static/media/hikvision3.5259551b.jpeg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.89462d6c.js",
     "static/js/2.f56959cd.chunk.js",
-    "static/css/main.b2447ebf.chunk.css",
-    "static/js/main.7d0bc02e.chunk.js"
+    "static/css/main.b148a327.chunk.css",
+    "static/js/main.76d0459d.chunk.js"
   ]
 }
