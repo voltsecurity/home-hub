@@ -6,3 +6,13 @@
 .asset-container-box {
     height: 100%;
 }
+
+.asset-homepage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 5em;
+}

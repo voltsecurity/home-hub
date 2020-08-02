@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 
 import { Menu } from './components/menu/menu.component';
 import AssetHomepage from './pages/asset-homepage/asset-homepage.component';
+import ErrorPage from './pages/error-page/error-page.component';
 // import { AssetsContainer } from './components/assets-container/assets-container.component';
 
-import './App.css';
+import './App.scss';
 
 
 class App extends Component {
@@ -22,8 +23,8 @@ class App extends Component {
         <Menu />
         <div className='main'>
           <Switch>
-            <Route path='asset-manager/assets' component={AssetHomepage} />
-            <Route path=''>404</Route>
+            <Route path='/asset-manager/assets' component={AssetHomepage} />
+            <Route path='' component={ErrorPage}/>
           </Switch>
         </div>
       </div>
