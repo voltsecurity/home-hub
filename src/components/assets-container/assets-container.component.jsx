@@ -90,7 +90,7 @@ class AssetsContainer extends Component {
                                 linkUrl={'/assetlist'}
                                 cameraId={props.match.params.assetid} />
                             <AssetDetailed
-                                item={filteredItems.find(item =>
+                                item={itemDB.find(item =>
                                     item.cameraID.toLowerCase() === props.match.params.assetid
                                 )} />
                         </div>)} />
