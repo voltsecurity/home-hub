@@ -6,7 +6,7 @@ import ForwardArrow from '../arrows/forward-arrow/forward-arrow.component';
 
 import './header-bar.style.scss'
 
-export const HeaderBar = ({ searchBox, arrows, handleChange, handleReturn, handleGoBack, handleGoForward, linkUrl, goBack }) => (
+export const HeaderBar = ({ cameraId, searchBox, arrows, handleChange, handleReturn, handleGoBack, handleGoForward, linkUrl, goBack }) => (
     <div className='bar'>
         <div className='go-back-container'>
             {goBack ?
@@ -21,8 +21,8 @@ export const HeaderBar = ({ searchBox, arrows, handleChange, handleReturn, handl
         <div className='arrows-container'>
             {arrows ?
                 <div className='arrows'>
-                    <BackwardArrow handleGoBack={handleGoBack}/>
-                    <ForwardArrow handleGoForward={handleGoForward} />
+                    <BackwardArrow handleGoBack={handleGoBack} cameraId={cameraId}/>
+                    <ForwardArrow handleGoForward={handleGoForward} cameraId={cameraId} />
                 </div>
                 : null}
         </div>

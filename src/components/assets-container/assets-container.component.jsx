@@ -28,7 +28,9 @@ class AssetsContainer extends Component {
     }
 
     handleClick = (item, history, match) => {
+        this.setState({ assetId: item.cameraID.toLowerCase() })
         history.push(`${match.url}/${item.cameraID.toLowerCase()}`);
+
     }
 
     handleReturn = (linkUrl) => {
@@ -36,13 +38,32 @@ class AssetsContainer extends Component {
         history.push(`${match.url}${linkUrl}`)
     }
 
-    handleGoForward = () => {
-        console.log('go forward')
+    handleGoForward = (cameraId) => {
+        const { history, match } = this.props;
+        const { itemDB, assetId } = this.state;
+        console.log(itemDB.length, 'length')
+        let index = 0
+        if (index < itemDB.length) {
+            index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetId);
+            index += 1;
+            const nextItem = itemDB[index];
+            history.push(`${match.url}/assetlist/${nextItem.cameraID.toLowerCase()}`);
+            this.setState({ assetId: nextItem.cameraID.toLowerCase() });
+            console.log(index)
+        } else {
+            index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetId);
+            index = 0
+            const nextItem = itemDB[index];
+            history.push(`${match.url}/assetlist/${nextItem.cameraID.toLowerCase()}`);
+            this.setState({ assetId: nextItem.cameraID.toLowerCase() });
+            console.log(index)
+        }
     }
 
     handleGoBack = () => {
         console.log('go back')
     }
+
 
     render() {
 
@@ -65,12 +86,13 @@ class AssetsContainer extends Component {
                                 goBack
                                 handleReturn={this.handleReturn}
                                 handleGoForward={this.handleGoForward}
-                                handleGoBack={this.handleGoBack}  
-                                linkUrl={'/assetlist'} />
+                                handleGoBack={this.handleGoBack}
+                                linkUrl={'/assetlist'}
+                                cameraId={props.match.params.assetid} />
                             <AssetDetailed
                                 item={filteredItems.find(item =>
                                     item.cameraID.toLowerCase() === props.match.params.assetid
-                                )}/>
+                                )} />
                         </div>)} />
                     <Route exact path={`${match.url}/assetlist`} render={props => (
                         <div>
