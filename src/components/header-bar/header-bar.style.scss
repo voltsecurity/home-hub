@@ -15,12 +15,20 @@
         padding-left: 40px;
     }
 
+    .clear-button-container {
+    margin-right: 60px;
+}
+
     .arrows-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
         width: 300px;
 
         .arrows {
             text-align: right;
-            margin-right: 50px;
+            margin: 0 50px 0 15px;
         }
     }
 }

@@ -19,18 +19,26 @@ class AssetsContainer extends Component {
             itemDB: ASSET_DATA,
             searchField: '',
             route: 'asset-list',
-            assetId: ''
+            assetID: ''
         }
+    }
+
+    assetUpdateState = (item) => {
+        this.setState({ assetID: item.cameraID.toLowerCase() }, console.log(this.state.assetId))
     }
 
     handleChange = e => {
         this.setState({ searchField: e.target.value })
     }
 
-    handleClick = (item, history, match) => {
-        this.setState({ assetId: item.cameraID.toLowerCase() })
-        history.push(`${match.url}/${item.cameraID.toLowerCase()}`);
+    handleClick = (item) => {
+        const { history } = this.props;
+        this.setState({ assetID: item.cameraID.toLowerCase() })
+        history.push(`assetlist/${item.cameraID.toLowerCase()}`);
+    }
 
+    handleClear = () => {
+        this.setState({ searchField: '' })
     }
 
     handleReturn = (linkUrl) => {
@@ -38,35 +46,43 @@ class AssetsContainer extends Component {
         history.push(`${match.url}${linkUrl}`)
     }
 
-    handleGoForward = (cameraId) => {
+    handleGoForward = () => {
         const { history, match } = this.props;
-        const { itemDB, assetId } = this.state;
-        console.log(itemDB.length, 'length')
-        let index = 0
-        if (index < itemDB.length) {
-            index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetId);
-            index += 1;
-            const nextItem = itemDB[index];
-            history.push(`${match.url}/assetlist/${nextItem.cameraID.toLowerCase()}`);
-            this.setState({ assetId: nextItem.cameraID.toLowerCase() });
-            console.log(index)
+        const { assetID, itemDB } = this.state;
+        let index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetID);
+        if (index < itemDB.length - 1) {
+            const itemID = itemDB[(index + 1)].cameraID.toLowerCase();
+            console.log(assetID, index, itemID);
+            history.push(`${match.url}/assetlist/${itemID}`)
         } else {
-            index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetId);
             index = 0
-            const nextItem = itemDB[index];
-            history.push(`${match.url}/assetlist/${nextItem.cameraID.toLowerCase()}`);
-            this.setState({ assetId: nextItem.cameraID.toLowerCase() });
-            console.log(index)
+            const itemID = itemDB[index].cameraID.toLowerCase();
+            console.log(assetID, index, itemID);
+            history.push(`${match.url}/assetlist/${itemID}`)
         }
     }
 
+
     handleGoBack = () => {
-        console.log('go back')
+        const { history, match } = this.props;
+        const { assetID, itemDB } = this.state;
+        let index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetID);
+        if (index > 0) {
+            const itemID = itemDB[(index - 1)].cameraID.toLowerCase();
+            console.log(assetID, index, itemID);
+            history.push(`${match.url}/assetlist/${itemID}`)
+        } else {
+            index = itemDB.length - 1;
+            const itemID = itemDB[index].cameraID.toLowerCase();
+            console.log(assetID, index, itemID);
+            history.push(`${match.url}/assetlist/${itemID}`)
+        }
     }
 
 
-    render() {
 
+    render() {
+        console.log('parent render', this.state.assetID)
         const { match } = this.props
         const { itemDB, searchField } = this.state;
         const filteredItems =
@@ -82,23 +98,31 @@ class AssetsContainer extends Component {
                     <Route exact path={`${match.url}/assetlist/:assetid`}
                         render={props => (<div className='asset-container-box'>
                             <HeaderBar
+                                pageCounter
                                 arrows
                                 goBack
+                                length={itemDB.length}
+                                index={itemDB.findIndex(item =>
+                                    item.cameraID.toLowerCase() === props.match.params.assetid
+                                )}
                                 handleReturn={this.handleReturn}
                                 handleGoForward={this.handleGoForward}
                                 handleGoBack={this.handleGoBack}
-                                linkUrl={'/assetlist'}
-                                cameraId={props.match.params.assetid} />
+                                linkUrl={'/assetlist'} />
                             <AssetDetailed
+                                assetUpdateState={this.assetUpdateState}
                                 item={itemDB.find(item =>
                                     item.cameraID.toLowerCase() === props.match.params.assetid
                                 )} />
                         </div>)} />
-                    <Route exact path={`${match.url}/assetlist`} render={props => (
+                    <Route exact strict path={`${match.url}/assetlist`} render={props => (
                         <div>
-                            <HeaderBar searchBox
-                                handleChange={this.handleChange}
+                            <HeaderBar
+                                searchBox
                                 goBack
+                                clear
+                                handleChange={this.handleChange}
+                                handleClear={this.handleClear}
                                 handleReturn={this.handleReturn}
                                 linkUrl={''} />
                             <CardList equipment={filteredItems} handleClick={this.handleClick} />
@@ -110,7 +134,6 @@ class AssetsContainer extends Component {
                         </div>)} />
                     <Route path='' component={ErrorPage} />
                 </Switch>
-
             </div>
         );
     }

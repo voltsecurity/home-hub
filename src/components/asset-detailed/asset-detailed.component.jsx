@@ -7,15 +7,35 @@ import AssetDocuments from '../asset-documents/asset-documents.component'
 
 import './asset-detailed.styles.css';
 
-export const AssetDetailed = ({ item }) => (
-    <div className='assetBox'>
-        {item ?
-            <Fragment>
-            <AssetMainInfo item={item} />
-            <AssetSubInfo item={item} />
-            <AssetDocuments item={item} />
-            </Fragment>
-        : window.history.back()}
+export class AssetDetailed extends React.Component {
 
-    </div>
-)
+    componentDidUpdate = (prevProps) => {
+        const { item } = this.props;
+        if (item !== prevProps.item) {
+            this.props.assetUpdateState(item);
+        }
+    }
+
+    // componentDidMount = () => {
+    //     const { item } = this.props;
+    //     this.props.assetUpdateState(item);
+    // }
+
+    render() {
+        const { item } = this.props;
+
+        return (
+            <div className='assetBox'>
+                {item ?
+                    <Fragment>
+                        <AssetMainInfo item={item} />
+                        <AssetSubInfo item={item} />
+                        <AssetDocuments item={item} />
+                    </Fragment>
+                    : window.history.back()}
+
+            </div>
+
+        )
+    }
+}
