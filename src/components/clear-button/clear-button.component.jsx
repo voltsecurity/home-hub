@@ -3,7 +3,7 @@ import React from 'react';
 import './clear-button.styles.scss';
 
 const ClearButton = ({ handleClear }) => (
-    <button className='clear-button' onClick={handleClear}>CLEAR SEARCH</button>
+    <div className='clear-button' onClick={handleClear}>CLEAR SEARCH</div>
 )
 
 export default ClearButton;

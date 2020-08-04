@@ -101,6 +101,8 @@ class AssetsContainer extends Component {
                                 pageCounter
                                 arrows
                                 goBack
+                                dropdown
+                                itemList={itemDB}
                                 length={itemDB.length}
                                 index={itemDB.findIndex(item =>
                                     item.cameraID.toLowerCase() === props.match.params.assetid
