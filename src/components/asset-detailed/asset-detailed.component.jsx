@@ -4,6 +4,7 @@ import AssetMainInfo from '../asset-main-info/asset-main-info.component'
 import AssetSubInfo from '../asset-sub-info/asset-sub-info.component'
 import AssetDocuments from '../asset-documents/asset-documents.component'
 
+import ErrorPage from '../../pages/error-page/error-page.component';
 
 import './asset-detailed.styles.css';
 
@@ -25,14 +26,16 @@ export class AssetDetailed extends React.Component {
         const { item } = this.props;
 
         return (
-            <div className='assetBox'>
+            <div className='asset-detailed-container'>
                 {item ?
+                    <div className='assetBox'>
                     <Fragment>
                         <AssetMainInfo item={item} />
                         <AssetSubInfo item={item} />
                         <AssetDocuments item={item} />
                     </Fragment>
-                    : window.history.back()}
+                    </div>
+                    : <ErrorPage/>}
 
             </div>
 

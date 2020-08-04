@@ -14,6 +14,7 @@ import './assets-container.styles.css';
 
 class AssetsContainer extends Component {
     constructor(props) {
+
         super(props);
         this.state = {
             itemDB: ASSET_DATA,
@@ -22,6 +23,8 @@ class AssetsContainer extends Component {
             assetID: ''
         }
     }
+
+
 
     assetUpdateState = (item) => {
         this.setState({ assetID: item.cameraID.toLowerCase() }, console.log(this.state.assetId))
@@ -32,9 +35,18 @@ class AssetsContainer extends Component {
     }
 
     handleClick = (item) => {
-        const { history } = this.props;
+        const { history, match } = this.props;
+        this.setState({
+            assetID: item.cameraID.toLowerCase(),
+            searchField: ''
+        })
+        history.push(`${match.url}/assetlist/${item.cameraID.toLowerCase()}`)
+    }
+
+    handleClickDropdown = (item) => {
+        const { history, match } = this.props;
         this.setState({ assetID: item.cameraID.toLowerCase() })
-        history.push(`assetlist/${item.cameraID.toLowerCase()}`);
+        history.push(`${match.url}/assetlist/${item.cameraID.toLowerCase()}`)
     }
 
     handleClear = () => {
@@ -52,12 +64,10 @@ class AssetsContainer extends Component {
         let index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetID);
         if (index < itemDB.length - 1) {
             const itemID = itemDB[(index + 1)].cameraID.toLowerCase();
-            console.log(assetID, index, itemID);
             history.push(`${match.url}/assetlist/${itemID}`)
         } else {
             index = 0
             const itemID = itemDB[index].cameraID.toLowerCase();
-            console.log(assetID, index, itemID);
             history.push(`${match.url}/assetlist/${itemID}`)
         }
     }
@@ -82,7 +92,6 @@ class AssetsContainer extends Component {
 
 
     render() {
-        console.log('parent render', this.state.assetID)
         const { match } = this.props
         const { itemDB, searchField } = this.state;
         const filteredItems =
@@ -110,6 +119,7 @@ class AssetsContainer extends Component {
                                 handleReturn={this.handleReturn}
                                 handleGoForward={this.handleGoForward}
                                 handleGoBack={this.handleGoBack}
+                                handleClick={this.handleClickDropdown}
                                 linkUrl={'/assetlist'} />
                             <AssetDetailed
                                 assetUpdateState={this.assetUpdateState}

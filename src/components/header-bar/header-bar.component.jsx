@@ -19,12 +19,16 @@ export class HeaderBar extends React.Component {
     }
 
     handleDrop = () => {
-        console.log('clicked')
-        this.setState({ dropdownActive: !this.state.dropdownActive }, console.log(this.state.dropdownActive));
+        this.setState({ dropdownActive: !this.state.dropdownActive });
     }
 
+    handleHide = () => {
+        this.setState({ dropdownActive: false });
+    }
+
+
     render() {
-        const { itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleGoForward, linkUrl, goBack, length, index } = this.props;
+        const { itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleClick, handleGoForward, linkUrl, goBack, length, index } = this.props;
 
         return (
 
@@ -57,7 +61,7 @@ export class HeaderBar extends React.Component {
                         <div className='menu-icon-container'>
                             <MenuIcon handleDrop={this.handleDrop} />
                             {this.state.dropdownActive ? (<div className='dropdown-container'>
-                                <DropdownList itemList={itemList} />
+                                <DropdownList itemList={itemList} handleClick={handleClick} handleHide={this.handleHide} />
                             </div>) : null}
                         </div>
                     </div>

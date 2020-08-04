@@ -3,10 +3,10 @@ import MiniCard from '../mini-card/mini-card.component';
 
 import './dropdown-list.styles.scss';
 
-const DropdownList = ({ itemList }) => (
+const DropdownList = ({ itemList, handleClick, handleHide }) => (
     <div className='dropdown-list-wrapper'>
         <div className='dropdown-list-back'>
-            {itemList.map((item, index) => <MiniCard key={indexf} item={item} index={index} />)}
+            {itemList.map((item, index) => <MiniCard handleHide={handleHide} handleClick={handleClick} key={index} item={item} index={index} />)}
             
         </div>
     </div>
