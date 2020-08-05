@@ -96,10 +96,10 @@ class AssetsContainer extends Component {
         const { itemDB, searchField } = this.state;
         const filteredItems =
             itemDB.filter(({ cameraID, brand, type, ipAddress }) => (
-                cameraID.toLowerCase().includes(searchField))
-                || (brand.toLowerCase().includes(searchField))
-                || (type.toLowerCase().includes(searchField))
-                || (ipAddress.toLowerCase().includes(searchField)))
+                cameraID.toLowerCase().includes(searchField.toLowerCase()))
+                || (brand.toLowerCase().includes(searchField.toLowerCase()))
+                || (type.toLowerCase().includes(searchField.toLowerCase()))
+                || (ipAddress.toLowerCase().includes(searchField.toLowerCase())))
 
         return (
             <div className='container'>
