@@ -6,7 +6,7 @@ import AssetDocuments from '../asset-documents/asset-documents.component'
 
 import ErrorPage from '../../pages/error-page/error-page.component';
 
-import './asset-detailed.styles.css';
+import './asset-detailed.styles.scss';
 
 export class AssetDetailed extends React.Component {
 

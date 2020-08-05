@@ -1,0 +1,14 @@
+.card-list-wrapper {
+    height: calc(100vh - 60px);
+
+    .card-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: auto;
+        height: 100%;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
