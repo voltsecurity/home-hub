@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route} from 'react-router-dom';
 
-import { Menu } from './components/menu/menu.component';
+import Menu from './components/menu/menu.component';
 import AssetHomepage from './pages/asset-homepage/asset-homepage.component';
 import ErrorPage from './pages/error-page/error-page.component';
 // import { AssetsContainer } from './components/assets-container/assets-container.component';

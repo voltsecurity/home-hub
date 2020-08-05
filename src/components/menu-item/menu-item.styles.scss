@@ -3,9 +3,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 
     &:hover {
         background: rgb(37, 37, 37);
+        text-emphasis: none;
+        -webkit-text-emphasis: none;
     }
 
     .menu-item-icon {

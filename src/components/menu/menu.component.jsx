@@ -1,27 +1,38 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
 import { UserMenuDisplay } from '../user-menu-display/user-menu-display.component';
 import { MenuItem } from '../menu-item/menu-item.component';
 
 import MENU_ITEM_DATA from './menu-items-data';
 
-// import homeIcon from '../../assets/home-white.png';
-// import boxIcon from '../../assets/box-white.png';
-// import buildingIcon from '../../assets/building-white.png';
-// import formIcon from '../../assets/form-white.png';
-// import infoIcon from '../../assets/info-white.png';
-
 import './menu.styles.scss'
 
 
-export const Menu = () => (
-    <div className='menu' >
-        <UserMenuDisplay />
-        <div className='menu-items-container'>
-            {MENU_ITEM_DATA.map(item => <MenuItem name={item.name} icon={item.icon} />)}
+class Menu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    handleLink = (linkUrl) => {
+        this.props.history.push(linkUrl)
+    }
+
+    render() {
+        return (
+            <div className='menu' >
+                <UserMenuDisplay />
+                <div className='menu-items-container'>
+                    {MENU_ITEM_DATA.map((item, index) =>
+                        <MenuItem key={index} item={item} handleLink={this.handleLink} />)}
+                </div>
+                <div className='disclaimer-container'>
+                    <div className='disclaimer'>All Rights Reserved Bitchez</div>
+                </div>
             </div>
-            <div className='disclaimer-container'>
-                <div className='disclaimer'>All Rights Reserved Bitchez</div>
-            </div>
-    </div>
-)
+        )
+    }
+}
+
+export default withRouter(Menu);

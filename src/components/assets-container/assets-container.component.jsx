@@ -79,12 +79,10 @@ class AssetsContainer extends Component {
         let index = itemDB.findIndex(item => item.cameraID.toLowerCase() === assetID);
         if (index > 0) {
             const itemID = itemDB[(index - 1)].cameraID.toLowerCase();
-            console.log(assetID, index, itemID);
             history.push(`${match.url}/assetlist/${itemID}`)
         } else {
             index = itemDB.length - 1;
             const itemID = itemDB[index].cameraID.toLowerCase();
-            console.log(assetID, index, itemID);
             history.push(`${match.url}/assetlist/${itemID}`)
         }
     }

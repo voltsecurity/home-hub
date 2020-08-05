@@ -8,22 +8,28 @@ const MENU_ITEMS_DATA = [
     {
         name: 'Home',
         icon: homeIcon,
+        linkUrl: '/'
     },
     {
         name: 'My Assets',
         icon: boxIcon,
+        linkUrl: '/assets/assetlist'
     },
     {
         name: 'My Sites',
         icon: buildingIcon,
+        linkUrl: '/assets/assetlist'
+        
     },
     {
         name: 'Templates',
         icon: formIcon,
+        linkUrl: '/'
     },
     {
         name: 'Information',
         icon: infoIcon,
+        linkUrl: '/'
     }
 ];
 
