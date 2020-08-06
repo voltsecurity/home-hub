@@ -1,20 +1,20 @@
 import React from 'react';
-import { SearchBox } from '../search-box/search-box.component';
+import SearchBox from '../search-box/search-box.component';
 import GoBackIcon from '../go-back-icon/go-back-icon.component';
 import BackwardArrow from '../arrows/backward-arrow/backward-arrow.component';
 import ForwardArrow from '../arrows/forward-arrow/forward-arrow.component';
 import PageCounter from '../page-counter/page-counter.component';
-import ClearButton from '../clear-button/clear-button.component';
 import MenuIcon from '../menu-icon/menu-icon.component';
 import DropdownList from '../dropdown-list/dropdown-list.component';
 
 import './header-bar.style.scss'
 
 export class HeaderBar extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            dropdownActive: false
+            dropdownActive: false,
         };
     }
 
@@ -28,8 +28,7 @@ export class HeaderBar extends React.Component {
 
 
     render() {
-        const { itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleClick, handleGoForward, linkUrl, goBack, length, index } = this.props;
-
+        const { searchField, itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleClick, handleGoForward, linkUrl, goBack, length, index } = this.props;
         return (
 
             <div className='bar'>
@@ -40,12 +39,13 @@ export class HeaderBar extends React.Component {
                 </div>
                 <div className='search-box-container'>
                     {searchBox ? <SearchBox
-                        placeholder={'SEARCH'}
-                        handleChange={handleChange} /> : null}
+                        handleClear={handleClear}
+                        handleChange={handleChange}
+                        searchField={searchField} /> : null}
                 </div>
+                {/* {searchBox ? <ClearButton handleClear={handleClear} /> : null} */}
                 <div className='right-container'>
                     {clear ? <div className='clear-button-container'>
-                        <ClearButton handleClear={handleClear} />
                     </div> : null}
 
                     {pageCounter ? (<div className='page-counter'>

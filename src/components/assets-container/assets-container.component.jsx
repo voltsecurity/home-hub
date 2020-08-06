@@ -128,6 +128,7 @@ class AssetsContainer extends Component {
                     <Route exact strict path={`${match.url}/assetlist`} render={props => (
                         <div>
                             <HeaderBar
+                                searchField={searchField}
                                 searchBox
                                 goBack
                                 clear
