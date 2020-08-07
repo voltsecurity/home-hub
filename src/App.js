@@ -20,10 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Menu />home
+        <Menu />
         <div className='main'>
           <Switch>
-            <Route path='/' component={AssetHomepage} />
+            <Route path='/home' component={AssetHomepage} />
             <Route path='' component={ErrorPage}/>
           </Switch>
         </div>

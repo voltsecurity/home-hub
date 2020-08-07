@@ -11,18 +11,18 @@ const MENU_ITEMS_DATA = [
         linkUrl: '/'
     },
     {
-        name: 'My Assets',
+        name: 'Access Control',
         icon: boxIcon,
-        linkUrl: '/assets/assetlist'
+        linkUrl: '/home/assetlist'
     },
     {
-        name: 'My Sites',
+        name: 'Intruder Detection',
         icon: buildingIcon,
-        linkUrl: '/assets/assetlist'
+        linkUrl: '/home/assetlist'
         
     },
     {
-        name: 'Templates',
+        name: 'CCTV',
         icon: formIcon,
         linkUrl: '/'
     },

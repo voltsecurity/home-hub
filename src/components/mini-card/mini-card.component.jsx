@@ -1,13 +1,16 @@
 import React from 'react';
+
 import './mini-card.styles.scss';
+
 import { withRouter } from 'react-router-dom';
 
-const MiniCard = ({ item, index, handleClick, handleHide, history, match }) => (
+const MiniCard = ({ item, index, handleClick, handleHide }) => (
     <div>
+
         <div key={item.cameraID} className='mini-card' onClick={() => {
             handleClick(item)
             handleHide()
-            }}>
+        }}>
             <div className='left-container'>
                 <div className='index'>#{index + 1}</div>
                 <img className='image' src={item.imageUrl} alt="item" />
@@ -19,7 +22,7 @@ const MiniCard = ({ item, index, handleClick, handleHide, history, match }) => (
             </div>
             {/* <p>{item.model}</p> */}
         </div>
-        <hr className='line-break'/>
+        <hr className='line-break' />
     </div >
 )
 
