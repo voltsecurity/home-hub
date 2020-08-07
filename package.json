@@ -1,8 +1,8 @@
 {
-  "name": "asset-manager",
+  "name": "home-hub",
   "version": "0.1.0",
   "private": true,
-  "homepage": "//voltsecurity.github.io/asset-manager",
+  "homepage": "//voltsecurity.github.io/home-hub",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
