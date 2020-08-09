@@ -8,7 +8,7 @@ export const UserMenuDisplay = () => (
     <div className='user-menu-display'>
         <img className='user-image' src={userImage} alt="user" />
         <div className='user-info-container'>
-            <span className='user-name'>User Name</span>
+            <span className='user-name'><strong>User Name</strong></span>
             <span className='user-id'>user.email@email.com</span>
         </div>
         </div>

@@ -12,7 +12,7 @@ const MiniCard = ({ item, index, handleClick, handleHide }) => (
             handleHide()
         }}>
             <div className='left-container'>
-                <div className='index'>#{index + 1}</div>
+                <div className='index'>#{item.id}</div>
                 <img className='image' src={item.imageUrl} alt="item" />
             </div>
             <div className='info-container'>

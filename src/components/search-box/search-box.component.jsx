@@ -36,9 +36,6 @@ class SearchBox extends React.Component {
                 const { searchIconHidden } = this.state;
                 return (
                         <div className='search-box-wrapper'>
-                                {/* {!searchIconHidden ?
-                                        <img className='search-icon' src={searchIcon} alt="search" />
-                                        : null} */}
                                 <input onChange={handleChange}
                                         onClick={this.handleClick}
                                         onBlur={this.handleBlur}

@@ -61,7 +61,7 @@ export class HeaderBar extends React.Component {
                         <div className='menu-icon-container'>
                             <MenuIcon handleDrop={this.handleDrop} />
                             {this.state.dropdownActive ? (<div className='dropdown-container'>
-                                <DropdownList itemList={itemList} handleClick={handleClick} handleHide={this.handleHide} />
+                                <DropdownList itemList={itemList} handleClick={handleClick} handleHide={this.handleHide} handleClear={handleClear} handleChange={handleChange} searchField={searchField}/>
                             </div>) : null}
                         </div>
                     </div>

@@ -1,4 +1,6 @@
 .card-list-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
     height: calc(100vh - 70px);
     padding-top: 10px;
     overflow-y: auto;
@@ -10,4 +12,5 @@
         flex-flow: row wrap;
         justify-content: center;
     }
+
 }
