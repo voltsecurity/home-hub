@@ -114,8 +114,7 @@ class AssetsContainer extends Component {
 
 
     render() {
-        const { itemDB, category } = this.props
-        console.log(category)
+        const { category, itemDB, actions } = this.props
         const { searchField, contextMenu, position } = this.state;
         const filteredItems =
             itemDB.filter(({ cameraID, brand, type, ipAddress }) => (
@@ -167,7 +166,11 @@ class AssetsContainer extends Component {
                                 handleReturn={this.handleReturn}
                             />
                             {contextMenu ? <AssetContextActions position={position} /> : null}
-                            <CardList equipment={filteredItems} handleClick={this.handleClick} handleMenu={this.handleMenu} />
+                            <CardList equipment={filteredItems}
+                                handleClick={this.handleClick}
+                                handleMenu={this.handleMenu}
+                                actions={actions} 
+                                />
                         </div>)} />
                     {/* <Route exact path={`/${category}`} render={props => (
                         <div>

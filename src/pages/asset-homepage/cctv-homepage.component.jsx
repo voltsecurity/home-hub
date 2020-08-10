@@ -1,27 +1,28 @@
 import React from 'react';
 
-import './asset-homepage.styles.scss';
+import './cctv-homepage.styles.scss';
 
 import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
 
 import { CCTV_ASSET_DATA } from '../../database/asset-data';
 
-class AssetHomePage extends React.Component {
+class CCTVHomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             category: 'cctv',
-            itemDB: CCTV_ASSET_DATA
+            itemDB: CCTV_ASSET_DATA.INFO,
+            actions: CCTV_ASSET_DATA.ACTIONS
             
         }
     }
 
     render() {
-        const {category, itemDB} = this.state;
+        const {category, itemDB, actions} = this.state;
 
         return (
             <div>
-                <AssetsContainerWithRouter category={category} itemDB={itemDB}/>
+                <AssetsContainerWithRouter category={category} itemDB={itemDB} actions={actions}/>
             </div>
         )
     }
@@ -29,4 +30,4 @@ class AssetHomePage extends React.Component {
 }
 
 
-export default AssetHomePage;
+export default CCTVHomePage;

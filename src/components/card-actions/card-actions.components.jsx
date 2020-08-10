@@ -2,11 +2,18 @@ import React from 'react';
 
 import './card-actions.styles.scss';
 
-export const CardActions = ({ handleAction, handleLink, item }) => (
-    <div className='card-actions-wrapper'>
-        <div className='card-action' onClick={handleAction}>Unlock Timed</div>
-        <div className='card-action' onClick={handleAction}>Unlock</div>
-        <div className='card-action' onClick={handleAction}>Lock</div>
-        <div className='card-action' onClick={() => handleLink(item)}>Info</div>
-    </div>
-);
+export const CardActions = ({ item, name, action, handleAction, handleLink }) => {
+    const clickAction = () => {
+        if (action === 'control') {
+            return (e) => handleAction(e, name)
+        } else if (action === 'link') {
+            return () => handleLink(item)
+        } else {
+            return null
+        }
+    }
+
+    return (
+        <div className='card-action' onClick={clickAction()} >{name}</div>
+    )
+}

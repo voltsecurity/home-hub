@@ -11,16 +11,17 @@ class AccessControlPage extends React.Component {
         super(props);
         this.state = {
             category: 'access',
-            itemDB: ACCESS_ASSET_DATA
+            itemDB: ACCESS_ASSET_DATA.INFO,
+            actions: ACCESS_ASSET_DATA.ACTIONS
         }
     }
 
     render() {
-        const { category, itemDB } = this.state;
+        const { category, itemDB, actions } = this.state;
 
         return (
             <div>
-                <AssetsContainerWithRouter category={category} itemDB={itemDB} />
+                <AssetsContainerWithRouter category={category} itemDB={itemDB} actions={actions} />
             </div>
         )
     }
