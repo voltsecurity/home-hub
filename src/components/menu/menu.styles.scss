@@ -2,28 +2,15 @@
     background: #0b0b0d;
     width: 100%;
     height: calc(100vh -20px);
-    grid-row: span 2;
     border-right: 2px solid #d3d5fd;
-    /* border-bottom: 1px solid #d3d5fd; */
     z-index: 3;
-    padding-top: 20px;
+    padding-top: 20px;;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
+    justify-content: space-between;
 
     .menu-items-container {
         height: 85%;
-        padding-top: 50px;
-    }
-
-    .disclaimer-container {
-        align-self: center;
-        padding: 20px;
-
-        // margin: 30% auto 20px auto;
-
-        .disclaimer {
-            font-size: 0.8em;
-        }
+        padding-top: 15%;
     }
 }

@@ -27,9 +27,6 @@ class Menu extends React.Component {
                     {MENU_ITEM_DATA.map((item, index) =>
                         <MenuItem key={index} item={item} handleLink={this.handleLink} />)}
                 </div>
-                <div className='disclaimer-container'>
-                    <div className='disclaimer'>All Rights Reserved Bitchez</div>
-                </div>
             </div>
         )
     }

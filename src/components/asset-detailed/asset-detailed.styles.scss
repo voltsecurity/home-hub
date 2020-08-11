@@ -1,6 +1,7 @@
 .asset-detailed-container {
     color: #e4e5fc;
     height: calc(100vh - 60px);
+    animation: slideOutRight;
     
     .assetBox {
         position: relative;

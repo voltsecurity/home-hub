@@ -5,7 +5,6 @@ import { CardInfo } from '../card-info/card-info.component';
 import { CardActions } from '../card-actions/card-actions.components';
 
 import './card.styles.scss';
-// import { withRouter } from 'react-router-dom';
 
 class Card extends React.Component {
     constructor(props) {
@@ -18,6 +17,12 @@ class Card extends React.Component {
         this.borderGreen = {
             border: '3px solid #3bc036',
             boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 8px rgba(82, 236, 108, 0.6)'
+        }
+
+        this.borderGreenFlash = {
+            border: '3px solid #3bc036',
+            boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 8px rgba(82, 236, 108, 0.6)',
+            animation: 'blinker 1s linear infinite'
         }
 
         this.state = {
@@ -44,10 +49,12 @@ class Card extends React.Component {
                 this.setState({ doorStatus: 'locked' });
                 break;
             case 'grant access':
-                this.setState({ doorStatus: 'unlocked' });
-                setTimeout(() => {
-                    this.setState({ doorStatus: 'locked' })
-                }, 5000);
+                if (this.state.doorStatus === 'locked') {
+                    this.setState({ doorStatus: 'unlock timed' });
+                    setTimeout(() => {
+                        this.setState({ doorStatus: 'locked' })
+                    }, 5000);
+                }
                 break;
             default:
                 console.log('Default switch case');
@@ -55,13 +62,15 @@ class Card extends React.Component {
     }
 
     colourBorder = () => {
-        const { borderRed, borderGreen } = this;
+        const { borderRed, borderGreen, borderGreenFlash } = this;
         const { borderColour, doorStatus } = this.state;
         switch (doorStatus) {
             case 'unlocked':
                 return borderGreen
             case 'locked':
                 return borderRed
+            case 'unlock timed':
+                return borderGreenFlash
             default:
                 return borderColour;
         }
