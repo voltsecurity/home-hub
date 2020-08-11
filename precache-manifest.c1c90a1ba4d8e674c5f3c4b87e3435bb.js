@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1c8389fb2767c893381f374c81ebb1cf",
+    "revision": "b68181a01af9f95c662ee9988d5397d0",
     "url": "/home-hub/index.html"
   },
   {
-    "revision": "72e3159b876858594bca",
-    "url": "/home-hub/static/css/main.d7c38d3e.chunk.css"
+    "revision": "1deb2020f956c2690aeb",
+    "url": "/home-hub/static/css/main.95f6f164.chunk.css"
   },
   {
-    "revision": "c816ff9b0d691f486c2c",
-    "url": "/home-hub/static/js/2.c0f7d172.chunk.js"
+    "revision": "7a95e93aa4cf0044669a",
+    "url": "/home-hub/static/js/2.daa89977.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/home-hub/static/js/2.c0f7d172.chunk.js.LICENSE.txt"
+    "url": "/home-hub/static/js/2.daa89977.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "72e3159b876858594bca",
-    "url": "/home-hub/static/js/main.faef0bd2.chunk.js"
+    "revision": "1deb2020f956c2690aeb",
+    "url": "/home-hub/static/js/main.1aee207c.chunk.js"
   },
   {
     "revision": "d211059885ac8dc99c35",
@@ -38,5 +38,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f816a18b860eb4fed1a81927ae6de93e",
     "url": "/home-hub/static/media/cctv-ptz.f816a18b.png"
+  },
+  {
+    "revision": "0d9a3594d63d9d32cdb49a7d870e1798",
+    "url": "/home-hub/static/media/pir-icon.0d9a3594.png"
   }
 ]);

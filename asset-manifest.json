@@ -1,26 +1,27 @@
 {
   "files": {
-    "main.css": "/home-hub/static/css/main.d7c38d3e.chunk.css",
-    "main.js": "/home-hub/static/js/main.faef0bd2.chunk.js",
-    "main.js.map": "/home-hub/static/js/main.faef0bd2.chunk.js.map",
+    "main.css": "/home-hub/static/css/main.95f6f164.chunk.css",
+    "main.js": "/home-hub/static/js/main.1aee207c.chunk.js",
+    "main.js.map": "/home-hub/static/js/main.1aee207c.chunk.js.map",
     "runtime-main.js": "/home-hub/static/js/runtime-main.ef067b82.js",
     "runtime-main.js.map": "/home-hub/static/js/runtime-main.ef067b82.js.map",
-    "static/js/2.c0f7d172.chunk.js": "/home-hub/static/js/2.c0f7d172.chunk.js",
-    "static/js/2.c0f7d172.chunk.js.map": "/home-hub/static/js/2.c0f7d172.chunk.js.map",
+    "static/js/2.daa89977.chunk.js": "/home-hub/static/js/2.daa89977.chunk.js",
+    "static/js/2.daa89977.chunk.js.map": "/home-hub/static/js/2.daa89977.chunk.js.map",
     "index.html": "/home-hub/index.html",
-    "precache-manifest.b5874955dbfa376a48026ebdd648413e.js": "/home-hub/precache-manifest.b5874955dbfa376a48026ebdd648413e.js",
+    "precache-manifest.c1c90a1ba4d8e674c5f3c4b87e3435bb.js": "/home-hub/precache-manifest.c1c90a1ba4d8e674c5f3c4b87e3435bb.js",
     "service-worker.js": "/home-hub/service-worker.js",
-    "static/css/main.d7c38d3e.chunk.css.map": "/home-hub/static/css/main.d7c38d3e.chunk.css.map",
-    "static/js/2.c0f7d172.chunk.js.LICENSE.txt": "/home-hub/static/js/2.c0f7d172.chunk.js.LICENSE.txt",
+    "static/css/main.95f6f164.chunk.css.map": "/home-hub/static/css/main.95f6f164.chunk.css.map",
+    "static/js/2.daa89977.chunk.js.LICENSE.txt": "/home-hub/static/js/2.daa89977.chunk.js.LICENSE.txt",
     "static/media/access-door.png": "/home-hub/static/media/access-door.b62c8122.png",
     "static/media/cctv-bullet.png": "/home-hub/static/media/cctv-bullet.d446ddf5.png",
     "static/media/cctv-dome.png": "/home-hub/static/media/cctv-dome.e980ae9d.png",
-    "static/media/cctv-ptz.png": "/home-hub/static/media/cctv-ptz.f816a18b.png"
+    "static/media/cctv-ptz.png": "/home-hub/static/media/cctv-ptz.f816a18b.png",
+    "static/media/pir-icon.png": "/home-hub/static/media/pir-icon.0d9a3594.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ef067b82.js",
-    "static/js/2.c0f7d172.chunk.js",
-    "static/css/main.d7c38d3e.chunk.css",
-    "static/js/main.faef0bd2.chunk.js"
+    "static/js/2.daa89977.chunk.js",
+    "static/css/main.95f6f164.chunk.css",
+    "static/js/main.1aee207c.chunk.js"
   ]
 }
