@@ -1,8 +1,10 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 
 import { CardInfo } from '../card-info/card-info.component';
 import { CardActions } from '../card-actions/card-actions.components';
+
+import { setDoorState } from '../../redux/door/door.actions';
 
 import './card.styles.scss';
 
@@ -27,7 +29,6 @@ class Card extends React.Component {
 
         this.state = {
             actionsHidden: true,
-            doorStatus: 'locked',
             borderColour: this.borderRed
         }
 
@@ -39,20 +40,21 @@ class Card extends React.Component {
     }
 
     handleAction = (e, name) => {
+        const { setDoorState, doorState } = this.props;
         name = name.toLowerCase();
         e.stopPropagation();
         switch (name) {
             case 'unlock':
-                this.setState({ doorStatus: 'unlocked' });
+                setDoorState('unlocked');
                 break;
             case 'lock':
-                this.setState({ doorStatus: 'locked' });
+                setDoorState('locked');
                 break;
             case 'grant access':
-                if (this.state.doorStatus === 'locked') {
-                    this.setState({ doorStatus: 'unlock timed' });
+                if (doorState === 'locked') {
+                    setDoorState('unlock timed');
                     setTimeout(() => {
-                        this.setState({ doorStatus: 'locked' })
+                        setDoorState('locked')
                     }, 5000);
                 }
                 break;
@@ -63,8 +65,8 @@ class Card extends React.Component {
 
     colourBorder = () => {
         const { borderRed, borderGreen, borderGreenFlash } = this;
-        const { borderColour, doorStatus } = this.state;
-        switch (doorStatus) {
+        const { borderColour } = this.state;
+        switch (this.props.doorState) {
             case 'unlocked':
                 return borderGreen
             case 'locked':
@@ -93,7 +95,7 @@ class Card extends React.Component {
                     <img className='card-image' src={item.imageUrl} alt="item" />
                 </div>
                 {this.state.actionsHidden ?
-                    <CardInfo item={item} status={this.state.doorStatus} /> :
+                    <CardInfo item={item} status={this.props.doorState} /> :
                     <div className='card-actions-wrapper' >
                         {
                             actions.map((action, index) => <CardActions
@@ -113,5 +115,13 @@ class Card extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    doorState: state.door.doorState
+})
 
-export default Card;
+const mapDispatchToProps = dispatch => ({
+    setDoorState: doorState => dispatch(setDoorState(doorState))
+}) 
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

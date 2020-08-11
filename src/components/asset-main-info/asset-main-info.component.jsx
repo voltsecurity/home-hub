@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { CardInfo } from '../card-info/card-info.component';
-
 import './asset-main-info.styles.css';
 
 const AssetMainInfo = ({ item, status }) => (
