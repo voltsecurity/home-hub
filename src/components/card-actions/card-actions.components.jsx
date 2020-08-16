@@ -2,11 +2,12 @@ import React from 'react';
 
 import './card-actions.styles.scss';
 
-export const CardActions = ({ item, name, action, handleAction, handleLink }) => {
+export const CardActions = ({ item, action, handleAction, handleLink }) => {
+    const { name, type } = action;
     const clickAction = () => {
-        if (action === 'control') {
+        if (type === 'control') {
             return (e) => handleAction(e, name)
-        } else if (action === 'link') {
+        } else if (type === 'link') {
             return () => handleLink(item)
         } else {
             return null

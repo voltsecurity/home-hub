@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route} from 'react-router-dom';
 
 import Menu from './components/menu/menu.component';
@@ -6,12 +6,11 @@ import CCTVHomepage from './pages/cctv-homepage/cctv-homepage.component';
 import AccessHomepage from './pages/access-control-page/access-control-page.component';
 import IntruderHomepage from './pages/intruder-page/intruder-page.component';
 import ErrorPage from './pages/error-page/error-page.component';
-// import { AssetsContainer } from './components/assets-container/assets-container.component';
 
 import './App.scss';
 
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {

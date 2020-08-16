@@ -1,32 +1,29 @@
 import React from 'react';
-
-import './access-control-page.styles.scss';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect'
 
 import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
 
-import { ACCESS_ASSET_DATA } from '../../database/asset-data';
+import { selectAccessCategory, selectAccessActions, selectAccessItems } from '../../redux/access/access.selectors';
 
-class AccessControlPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            category: 'access',
-            itemDB: ACCESS_ASSET_DATA.INFO,
-            actions: ACCESS_ASSET_DATA.ACTIONS
-        }
-    }
-
-    render() {
-        const { category, itemDB, actions } = this.state;
-
-        return (
-            <div>
-                <AssetsContainerWithRouter category={category} itemDB={itemDB} actions={actions} />
-            </div>
-        )
-    }
-
-}
+import './access-control-page.styles.scss';
 
 
-export default AccessControlPage;  
+const AccessControlPage = ({ actions, category, items, match }) => {
+    console.log(match)
+    
+    return (
+        <div>
+            <AssetsContainerWithRouter category={category} items={items} actions={actions} />
+        </div>
+    )
+};
+
+const mapStateToProps = createStructuredSelector({
+    actions: selectAccessActions,
+    category: selectAccessCategory,
+    items: selectAccessItems
+});
+
+
+export default connect(mapStateToProps)(AccessControlPage);  

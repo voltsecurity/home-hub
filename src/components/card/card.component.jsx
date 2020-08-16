@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { CardInfo } from '../card-info/card-info.component';
 import { CardActions } from '../card-actions/card-actions.components';
 
 import { setDoorState } from '../../redux/door/door.actions';
+import { selectDoorState } from '../../redux/door/door.selectors';
 
 import './card.styles.scss';
 
@@ -59,7 +61,7 @@ class Card extends React.Component {
                 }
                 break;
             default:
-                console.log('Default switch case');
+                console.log('default switch case');
         }
     }
 
@@ -80,6 +82,7 @@ class Card extends React.Component {
 
 
     render() {
+        console.log('rendered')
         const { item, actions, id, handleLink } = this.props;
 
         return (
@@ -100,9 +103,8 @@ class Card extends React.Component {
                         {
                             actions.map((action, index) => <CardActions
                                 key={index}
-                                item={item}
-                                name={action.name}
-                                action={action.action}
+                                item={item}                               
+                                action={action}
                                 handleAction={this.handleAction}
                                 handleLink={handleLink}
                             />)
@@ -115,9 +117,9 @@ class Card extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    doorState: state.door.doorState
-})
+const mapStateToProps = createStructuredSelector({
+    doorState: selectDoorState
+});
 
 const mapDispatchToProps = dispatch => ({
     setDoorState: doorState => dispatch(setDoorState(doorState))

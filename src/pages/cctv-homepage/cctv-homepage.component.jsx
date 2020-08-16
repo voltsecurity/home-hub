@@ -1,33 +1,24 @@
 import React from 'react';
-
-import './cctv-homepage.styles.scss';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect'; 
 
 import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
 
-import { CCTV_ASSET_DATA } from '../../database/asset-data';
+import { selectCCTVCategory, selectCCTVItems, selectCCTVActions } from '../../redux/cctv/cctv.selectors';
 
-class CCTVHomePage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            category: 'cctv',
-            itemDB: CCTV_ASSET_DATA.INFO,
-            actions: CCTV_ASSET_DATA.ACTIONS
-            
-        }
-    }
+import './cctv-homepage.styles.scss';
 
-    render() {
-        const {category, itemDB, actions} = this.state;
+const CCTVHomePage = ({ category, items, actions }) => (
+        <div>
+            <AssetsContainerWithRouter category={category} items={items} actions={actions}/>
+        </div>
+);
 
-        return (
-            <div>
-                <AssetsContainerWithRouter category={category} itemDB={itemDB} actions={actions}/>
-            </div>
-        )
-    }
-
-}
+const mapStateToProps = createStructuredSelector({
+    category: selectCCTVCategory,
+    items: selectCCTVItems,
+    actions: selectCCTVActions
+})
 
 
-export default CCTVHomePage;
+export default connect(mapStateToProps)(CCTVHomePage);

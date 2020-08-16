@@ -1,33 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import './intruder-page.styles.scss';
 
 import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
 
-import { INTRUDER_ASSET_DATA } from '../../database/asset-data';
+import { selectIntruderCategory, selectIntruderItems, selectIntruderActions } from '../../redux/intruder/intruder.selector';
 
-class IntruderHomepage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            category: 'intruder',
-            itemDB: INTRUDER_ASSET_DATA.INFO,
-            actions: INTRUDER_ASSET_DATA.ACTIONS
-            
-        }
-    }
+import './intruder-page.styles.scss';
 
-    render() {
-        const {category, itemDB, actions} = this.state;
+const IntruderHomepage = ({ category, items, actions }) => (
+    <div>
+        <AssetsContainerWithRouter category={category} items={items} actions={actions} />
+    </div>
+);
 
-        return (
-            <div>
-                <AssetsContainerWithRouter category={category} itemDB={itemDB} actions={actions}/>
-            </div>
-        )
-    }
-
-}
+const mapStateToProps = createStructuredSelector({
+    category: selectIntruderCategory,
+    items: selectIntruderItems,
+    actions: selectIntruderActions
+})
 
 
-export default IntruderHomepage;
+export default connect(mapStateToProps)(IntruderHomepage);

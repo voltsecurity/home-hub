@@ -1,188 +1,153 @@
 export const CCTV_ASSET_DATA = {
-    INFO: [
+    category: 'cctv',
+    items: [
         {
+            id: 1,
             imageUrl: require('../images/cctv-dome.png'),
-            id: '1',
             name: 'Front Door',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 2,
             imageUrl: require('../images/cctv-bullet.png'),
-            id: '2',
             name: 'Driveway',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 3,
             imageUrl: require('../images/cctv-ptz.png'),
-            id: '3',
             name: 'Patio',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 4,
             imageUrl: require('../images/cctv-dome.png'),
-            id: '4',
             name: 'Garage',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 5,
             imageUrl: require('../images/cctv-dome.png'),
-            id: '1',
             name: 'Front Door',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 6,
             imageUrl: require('../images/cctv-bullet.png'),
-            id: '2',
             name: 'Driveway',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 7,
             imageUrl: require('../images/cctv-ptz.png'),
-            id: '3',
             name: 'Patio',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
         },
         {
+            id: 8,
             imageUrl: require('../images/cctv-dome.png'),
-            id: '4',
             name: 'Garage',
-            armStatus: '[ARM STATUS]',
-            fieldOne: '[RECORDING STATUS]',
-            fieldTwo: '[EVENTS]',
-
         },
     ],
-    ACTIONS: [
-        { name: 'Live', action: 'control'  },
-        { name: 'Playback', action: 'control'  },
-        { name: 'Events', action: 'control'  },
-        { name: 'Info', action: 'link'  }
+
+    status: {
+        armStatus: '[ARM STATUS]',
+        fieldOne: '[RECORDING STATUS]',
+        fieldTwo: '[EVENTS]',
+    },
+
+    actions: [
+        { name: 'Live', type: 'control' },
+        { name: 'Playback', type: 'control' },
+        { name: 'Events', type: 'control' },
+        { name: 'Info', type: 'link' }
     ]
 }
 
-
 export const ACCESS_ASSET_DATA = {
-    INFO: [
+    category: 'access',
+    items: [
         {
+            id: 1,
             imageUrl: require('../images/access-door.png'),
-            id: '1',
             name: 'Front Door',
-            position: '[POSITION]',
-            fieldOne: '[STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 2,
             imageUrl: require('../images/access-door.png'),
-            id: '2',
             name: 'Side Door',
-            position: '[POSITION]',
-            fieldOne: '[STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 3,
             imageUrl: require('../images/access-door.png'),
-            id: '3',
             name: 'Rear Door',
-            position: '[POSITION]',
-            fieldOne: '[STATUS]',
-            fieldTwo: '[EVENTS]'
         },
     ],
-    ACTIONS: [
-        { name: 'Unlock', action: 'control' },
-        { name: 'Lock', action: 'control'  },
-        { name: 'Grant Access', action: 'control'  },
-        { name: 'Info', action: 'link' }
+
+    status: {
+        position: '[POSITION]',
+        fieldOne: '[STATUS]',
+        fieldTwo: '[EVENTS]'
+    },
+
+    actions: [
+        { name: 'Unlock', type: 'control' },
+        { name: 'Lock', type: 'control' },
+        { name: 'Grant Access', type: 'control' },
+        { name: 'Info', type: 'link' }
 
     ]
 }
 
 export const INTRUDER_ASSET_DATA = {
-    INFO: [
+    category: 'intruder',
+    items: [
         {
+            id: 1,
             imageUrl: require('../images/pir-icon.png'),
-            id: '1',
             name: 'Front Door',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 2,
             imageUrl: require('../images/pir-icon.png'),
-            id: '2',
             name: 'Kitchen',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 3,
             imageUrl: require('../images/pir-icon.png'),
-            id: '3',
             name: 'Bedroom 1',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 4,
             imageUrl: require('../images/pir-icon.png'),
-            id: '4',
             name: 'Lounge',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 5,
             imageUrl: require('../images/pir-icon.png'),
-            id: '5',
             name: 'Bedroom 2',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 6,
             imageUrl: require('../images/pir-icon.png'),
-            id: '6',
             name: 'Office',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 7,
             imageUrl: require('../images/pir-icon.png'),
-            id: '7',
             name: 'Garage',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
         {
+            id: 8,
             imageUrl: require('../images/pir-icon.png'),
-            id: '8',
             name: 'Ext PIR',
-            status: '[POSITION]',
-            fieldOne: '[ARM STATUS]',
-            fieldTwo: '[EVENTS]'
         },
     ],
-    ACTIONS: [
-        { name: 'Arm', action: 'control' },
-        { name: 'Disarm', action: 'control'  },
-        { name: 'Isolate', action: 'control'  },
-        { name: 'Info', action: 'link' }
+
+    status: {
+        status: '[POSITION]',
+        fieldOne: '[ARM STATUS]',
+        fieldTwo: '[EVENTS]'
+    },
+
+    actions: [
+        { name: 'Arm', type: 'control' },
+        { name: 'Disarm', type: 'control' },
+        { name: 'Isolate', type: 'control' },
+        { name: 'Info', type: 'link' }
 
     ]
 }

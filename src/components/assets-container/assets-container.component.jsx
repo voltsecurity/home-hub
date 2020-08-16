@@ -9,25 +9,16 @@ import ErrorPage from '../../pages/error-page/error-page.component';
 
 
 import './assets-container.styles.css';
-import AssetContextActions from '../asset-context-actions/asset-context-action.component';
 
 
 class AssetsContainer extends Component {
     constructor(props) {
-
         super(props);
         this.state = {
             searchField: '',
             assetID: '',
-            contextMenu: false,
-            position: {
-                x: '',
-                y: ''
-            }
         }
     }
-
-
 
     assetUpdateState = (item) => {
         this.setState({ assetID: item.name.toLowerCase() })
@@ -62,62 +53,39 @@ class AssetsContainer extends Component {
     }
 
     handleGoForward = () => {
-        const { history, match, itemDB } = this.props;
+        const { history, match, items } = this.props;
         const { assetID } = this.state;
-        let index = itemDB.findIndex(item => item.name.toLowerCase() === assetID);
-        if (index < itemDB.length - 1) {
-            const itemID = itemDB[(index + 1)].name.toLowerCase();
+        let index = items.findIndex(item => item.name.toLowerCase() === assetID);
+        if (index < items.length - 1) {
+            const itemID = items[(index + 1)].name.toLowerCase();
             history.push(`${match.url}/${itemID}`)
         } else {
             index = 0
-            const itemID = itemDB[index].name.toLowerCase();
+            const itemID = items[index].name.toLowerCase();
             history.push(`${match.url}/${itemID}`)
         }
     }
 
 
     handleGoBack = () => {
-        const { history, match, itemDB } = this.props;
+        const { history, match, items } = this.props;
         const { assetID } = this.state;
-        let index = itemDB.findIndex(item => item.name.toLowerCase() === assetID);
+        let index = items.findIndex(item => item.name.toLowerCase() === assetID);
         if (index > 0) {
-            const itemID = itemDB[(index - 1)].name.toLowerCase();
+            const itemID = items[(index - 1)].name.toLowerCase();
             history.push(`${match.url}/${itemID}`)
         } else {
-            index = itemDB.length - 1;
-            const itemID = itemDB[index].name.toLowerCase();
+            index = items.length - 1;
+            const itemID = items[index].name.toLowerCase();
             history.push(`${match.url}/${itemID}`)
         }
     }
 
-    handleMenu = (e) => {
-        e.preventDefault();
-        const element = document.getElementById('card-list-wrapper');
-        const x = element.offsetLeft;
-        const y = element.offsetTop;
-        let posX = e.pageX
-        let posY = e.pageY
-        let calcPosX = e.pageX - x;
-        let calcPosY = e.pageY - y;
-        console.log(e.target, posX, posY, x, y, calcPosX, calcPosY);
-        this.setState({
-            contextMenu: true,
-            position: {
-                x: calcPosX,
-                y: calcPosY
-            }
-        }, console.log(this.state))
-
-
-    }
-
-
-
     render() {
-        const { category, itemDB, actions } = this.props
-        const { searchField, contextMenu, position } = this.state;
+        const { category, items, actions, match } = this.props
+        const { searchField } = this.state;
         const filteredItems =
-            itemDB.filter(({ name, brand, type, ipAddress }) => (
+            items.filter(({ name, brand, type, ipAddress }) => (
                 name.toLowerCase().includes(searchField.toLowerCase()))
                 || (brand.toLowerCase().includes(searchField.toLowerCase()))
                 || (type.toLowerCase().includes(searchField.toLowerCase()))
@@ -126,7 +94,7 @@ class AssetsContainer extends Component {
         return (
             <div className='container' id='container'>
                 <Switch>
-                    <Route exact path={`/${category}/:assetid`}
+                    <Route exact path={`/${match.path}/:assetid`}
                         render={props => (<div className='asset-container-box'>
                             <HeaderBar
                                 pageCounter
@@ -135,9 +103,8 @@ class AssetsContainer extends Component {
                                 dropdown
                                 searchField={searchField}
                                 itemList={filteredItems}
-                                linkUrl={'/assetlist'}
-                                length={itemDB.length}
-                                index={itemDB.findIndex(item =>
+                                length={items.length}
+                                index={items.findIndex(item =>
                                     item.name.toLowerCase() === props.match.params.assetid
                                 )}
                                 handleChange={this.handleChange}
@@ -149,7 +116,7 @@ class AssetsContainer extends Component {
                             />
                             <AssetDetailed
                                 assetUpdateState={this.assetUpdateState}
-                                item={itemDB.find(item =>
+                                item={items.find(item =>
                                     item.name.toLowerCase() === props.match.params.assetid
                                 )} />
                         </div>)} />
@@ -165,12 +132,10 @@ class AssetsContainer extends Component {
                                 handleClear={this.handleClear}
                                 handleReturn={this.handleReturn}
                             />
-                            {contextMenu ? <AssetContextActions position={position} /> : null}
                             <CardList equipment={filteredItems}
                                 handleClick={this.handleClick}
-                                handleMenu={this.handleMenu}
-                                actions={actions} 
-                                />
+                                actions={actions}
+                            />
                         </div>)} />
                     <Route path='' component={ErrorPage} />
                 </Switch>

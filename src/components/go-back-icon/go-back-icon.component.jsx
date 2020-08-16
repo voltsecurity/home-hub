@@ -7,7 +7,7 @@ import './go-back-icon.styles.scss';
 
 const GoBackIcon = ({ handleReturn, linkUrl}) => (
     <img className='go-back' src={goBack} alt="back-arrow" 
-    onClick={() => handleReturn(linkUrl)}/>
+    onClick={handleReturn}/>
 )
 
 export default GoBackIcon;

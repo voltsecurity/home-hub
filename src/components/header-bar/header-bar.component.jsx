@@ -28,13 +28,13 @@ export class HeaderBar extends React.Component {
 
 
     render() {
-        const { searchField, itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleClick, handleGoForward, linkUrl, goBack, length, index } = this.props;
+        const { searchField, itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleClick, handleGoForward, goBack, length, index } = this.props;
         return (
 
             <div className='bar'>
                 <div className='left-container'>
                     {goBack ?
-                        <div className='go-back-container'><GoBackIcon handleReturn={handleReturn} linkUrl={linkUrl} /></div>
+                        <div className='go-back-container'><GoBackIcon handleReturn={handleReturn}/></div>
                         : null}
                 </div>
                 <div className='search-box-container'>
@@ -43,7 +43,6 @@ export class HeaderBar extends React.Component {
                         handleChange={handleChange}
                         searchField={searchField} /> : null}
                 </div>
-                {/* {searchBox ? <ClearButton handleClear={handleClear} /> : null} */}
                 <div className='right-container'>
                     {clear ? <div className='clear-button-container'>
                     </div> : null}
