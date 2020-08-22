@@ -1,29 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect'
+import { Route, Switch } from 'react-router';
 
-import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
+import AssetsContainer from '../../components/assets-container/assets-container.component';
+import AssetDetailedPage from '../asset-detailed-page/asset-detailed-page.component';
 
-import { selectAccessCategory, selectAccessActions, selectAccessItems } from '../../redux/access/access.selectors';
+import { ACCESS_ASSET_DATA } from '../../database/asset-data';
+
 
 import './access-control-page.styles.scss';
 
 
-const AccessControlPage = ({ actions, category, items, match }) => {
-    console.log(match)
-    
-    return (
-        <div>
-            <AssetsContainerWithRouter category={category} items={items} actions={actions} />
-        </div>
-    )
-};
+class AccessControlPage extends React.Component {
 
-const mapStateToProps = createStructuredSelector({
-    actions: selectAccessActions,
-    category: selectAccessCategory,
-    items: selectAccessItems
-});
+    render() {
+        const { match } = this.props;
+        const assets = ACCESS_ASSET_DATA;
+        return (
+            <div>
+                <Switch>
+                    <Route exact path={`${match.path}`} render={() => <AssetsContainer assets={assets} />} />
+                    <Route path={`${match.path}/:assetId`} component={AssetDetailedPage} />
+                </Switch>
+            </div>
+        )
+    }
+}
 
 
-export default connect(mapStateToProps)(AccessControlPage);  
+export default AccessControlPage;  

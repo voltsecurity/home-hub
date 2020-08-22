@@ -1,24 +1,26 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect'; 
+import { Route, Switch } from 'react-router';
 
-import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
+import AssetsContainer from '../../components/assets-container/assets-container.component';
+import AssetDetailedPage from '../asset-detailed-page/asset-detailed-page.component';
 
-import { selectCCTVCategory, selectCCTVItems, selectCCTVActions } from '../../redux/cctv/cctv.selectors';
+import { CCTV_ASSET_DATA } from '../../database/asset-data';
+
 
 import './cctv-homepage.styles.scss';
 
-const CCTVHomePage = ({ category, items, actions }) => (
-        <div>
-            <AssetsContainerWithRouter category={category} items={items} actions={actions}/>
-        </div>
-);
+const CCTVHomePage = ({ match }) => {
+    const assets = CCTV_ASSET_DATA;
 
-const mapStateToProps = createStructuredSelector({
-    category: selectCCTVCategory,
-    items: selectCCTVItems,
-    actions: selectCCTVActions
-})
+    return (
+        <Switch>
+            <Route exact path={`${match.path}`} render={() => <AssetsContainer assets={assets} />} />
+            <Route path={`${match.path}/:assetId`} component={AssetDetailedPage} />
+        </Switch>
+    )
+}
 
 
-export default connect(mapStateToProps)(CCTVHomePage);
+
+
+export default CCTVHomePage;

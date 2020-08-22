@@ -44,9 +44,9 @@ export const CCTV_ASSET_DATA = {
     ],
 
     status: {
-        armStatus: '[ARM STATUS]',
-        fieldOne: '[RECORDING STATUS]',
-        fieldTwo: '[EVENTS]',
+        fieldOne: '[ARM STATUS]',
+        fieldTwo: '[RECORDING STATUS]',
+        fieldThree: '[EVENTS]',
     },
 
     actions: [
@@ -78,9 +78,9 @@ export const ACCESS_ASSET_DATA = {
     ],
 
     status: {
-        position: '[POSITION]',
-        fieldOne: '[STATUS]',
-        fieldTwo: '[EVENTS]'
+        fieldOne: '[POSITION]',
+        fieldTwo: '[STATUS]',
+        fieldThree: '[EVENTS]'
     },
 
     actions: [
@@ -138,9 +138,9 @@ export const INTRUDER_ASSET_DATA = {
     ],
 
     status: {
-        status: '[POSITION]',
-        fieldOne: '[ARM STATUS]',
-        fieldTwo: '[EVENTS]'
+        fieldOne: '[POSITION]',
+        fieldTwo: '[ARM STATUS]',
+        fieldThree: '[EVENTS]'
     },
 
     actions: [

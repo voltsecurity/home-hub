@@ -1,25 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { Route, Switch } from 'react-router';
 
+import AssetsContainer from '../../components/assets-container/assets-container.component';
+import AssetDetailedPage from '../asset-detailed-page/asset-detailed-page.component';
 
-import { AssetsContainerWithRouter } from '../../components/assets-container/assets-container.component';
-
-import { selectIntruderCategory, selectIntruderItems, selectIntruderActions } from '../../redux/intruder/intruder.selector';
+import { INTRUDER_ASSET_DATA } from '../../database/asset-data';
 
 import './intruder-page.styles.scss';
 
-const IntruderHomepage = ({ category, items, actions }) => (
-    <div>
-        <AssetsContainerWithRouter category={category} items={items} actions={actions} />
-    </div>
-);
+const IntruderHomepage = ({ match }) => {
+    const assets = INTRUDER_ASSET_DATA;
 
-const mapStateToProps = createStructuredSelector({
-    category: selectIntruderCategory,
-    items: selectIntruderItems,
-    actions: selectIntruderActions
-})
+    return (
+        <Switch>
+            <Route exact path={`${match.path}`} render={() => <AssetsContainer assets={assets} />} />
+            <Route path={`${match.path}/:assetId`} component={AssetDetailedPage} />
+        </Switch>
+    );
+}
 
 
-export default connect(mapStateToProps)(IntruderHomepage);
+export default IntruderHomepage;

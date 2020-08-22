@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { CardList } from '../card-list/card-list.component';
 import { HeaderBar } from '../header-bar/header-bar.component';
-import { AssetDetailed } from '../asset-detailed/asset-detailed.component'
-
-import ErrorPage from '../../pages/error-page/error-page.component';
-
 
 import './assets-container.styles.css';
+
 
 
 class AssetsContainer extends Component {
@@ -19,6 +17,7 @@ class AssetsContainer extends Component {
             assetID: '',
         }
     }
+
 
     assetUpdateState = (item) => {
         this.setState({ assetID: item.name.toLowerCase() })
@@ -82,19 +81,33 @@ class AssetsContainer extends Component {
     }
 
     render() {
-        const { category, items, actions, match } = this.props
+        console.log('asset-container rendered')
+        const { assets } = this.props;
         const { searchField } = this.state;
         const filteredItems =
-            items.filter(({ name, brand, type, ipAddress }) => (
-                name.toLowerCase().includes(searchField.toLowerCase()))
-                || (brand.toLowerCase().includes(searchField.toLowerCase()))
-                || (type.toLowerCase().includes(searchField.toLowerCase()))
-                || (ipAddress.toLowerCase().includes(searchField.toLowerCase())))
+            assets.items.filter(({ name }) => (
+                name.toLowerCase().includes(searchField.toLowerCase())))
 
         return (
             <div className='container' id='container'>
-                <Switch>
-                    <Route exact path={`/${match.path}/:assetid`}
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = (state, ownProps) => ({
+
+})
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AssetsContainer));
+
+
+
+{/* <Route exact path={`/${match.path}/:assetid`}
                         render={props => (<div className='asset-container-box'>
                             <HeaderBar
                                 pageCounter
@@ -119,30 +132,21 @@ class AssetsContainer extends Component {
                                 item={items.find(item =>
                                     item.name.toLowerCase() === props.match.params.assetid
                                 )} />
-                        </div>)} />
-                    <Route exact strict path={`/${category}`} render={props => (
-                        <div>
-                            <HeaderBar
-                                searchField={searchField}
-                                searchBox
-                                goBack
-                                clear
-                                linkUrl={''}
-                                handleChange={this.handleChange}
-                                handleClear={this.handleClear}
-                                handleReturn={this.handleReturn}
-                            />
-                            <CardList equipment={filteredItems}
-                                handleClick={this.handleClick}
-                                actions={actions}
-                            />
-                        </div>)} />
-                    <Route path='' component={ErrorPage} />
-                </Switch>
-            </div>
-        );
-    }
-}
+                        </div>)} /> */}
 
-export const AssetsContainerWithRouter = withRouter(AssetsContainer);
-
+{/* <div>
+    <HeaderBar
+        searchField={searchField}
+        searchBox
+        goBack
+        clear
+        linkUrl={''}
+        handleChange={this.handleChange}
+        handleClear={this.handleClear}
+        handleReturn={this.handleReturn}
+    />
+    <CardList equipment={filteredItems}
+        assets={assets}
+        handleClick={this.handleClick}
+    />
+</div> */}
