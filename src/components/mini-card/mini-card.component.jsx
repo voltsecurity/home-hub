@@ -3,8 +3,10 @@ import React from 'react';
 import './mini-card.styles.scss';
 
 import { withRouter } from 'react-router-dom';
+import CardImage from '../card-image/card-image.component';
+import { CardInfo } from '../card-info/card-info.component';
 
-const MiniCard = ({ item, index, handleClick, handleHide }) => (
+const MiniCard = ({ item, fields, handleClick, handleHide }) => (
     <div>
 
         <div key={item.cameraID} className='mini-card' onClick={() => {
@@ -13,12 +15,12 @@ const MiniCard = ({ item, index, handleClick, handleHide }) => (
         }}>
             <div className='left-container'>
                 <div className='index'>#{item.id}</div>
-                <img className='image' src={item.imageUrl} alt="item" />
+                <div className='image'>
+                    <CardImage item={item} />
+                </div>
             </div>
             <div className='info-container'>
-                <h3 className='cameraid'>{item.cameraID}</h3>
-                <h5>{item.ipAddress}</h5>
-                <p>{item.type}</p>
+                <CardInfo item={item} fields={fields} noEvents/>
             </div>
             {/* <p>{item.model}</p> */}
         </div>

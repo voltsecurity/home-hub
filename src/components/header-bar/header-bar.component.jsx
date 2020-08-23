@@ -1,8 +1,7 @@
 import React from 'react';
 import SearchBox from '../search-box/search-box.component';
 import GoBackIcon from '../go-back-icon/go-back-icon.component';
-import BackwardArrow from '../arrows/backward-arrow/backward-arrow.component';
-import ForwardArrow from '../arrows/forward-arrow/forward-arrow.component';
+import Arrow from '../arrows/arrow.component';
 import PageCounter from '../page-counter/page-counter.component';
 import MenuIcon from '../menu-icon/menu-icon.component';
 import DropdownList from '../dropdown-list/dropdown-list.component';
@@ -28,13 +27,17 @@ export class HeaderBar extends React.Component {
 
 
     render() {
-        const { searchField, itemList, dropdown, clear, pageCounter, searchBox, arrows, handleClear, handleChange, handleReturn, handleGoBack, handleClick, handleGoForward, linkUrl, goBack, length, index } = this.props;
+        const { searchField, itemList, dropdown, clear, pageCounter,
+            searchBox, arrows, handleClear, handleChange, handleReturn,
+            handleClick, handleScroll, linkUrl, goBack, length, index } = this.props;
         return (
 
             <div className='bar'>
                 <div className='left-container'>
                     {goBack ?
-                        <div className='go-back-container'><GoBackIcon handleReturn={handleReturn} linkUrl={linkUrl} /></div>
+                        <div className='go-back-container'>
+                            <GoBackIcon handleReturn={handleReturn} linkUrl={linkUrl} />
+                        </div>
                         : null}
                 </div>
                 <div className='search-box-container'>
@@ -43,7 +46,6 @@ export class HeaderBar extends React.Component {
                         handleChange={handleChange}
                         searchField={searchField} /> : null}
                 </div>
-                {/* {searchBox ? <ClearButton handleClear={handleClear} /> : null} */}
                 <div className='right-container'>
                     {clear ? <div className='clear-button-container'>
                     </div> : null}
@@ -53,15 +55,18 @@ export class HeaderBar extends React.Component {
                     }
                     {arrows ?
                         <div className='arrows'>
-                            <BackwardArrow handleGoBack={handleGoBack} />
-                            <ForwardArrow handleGoForward={handleGoForward} />
+                            <Arrow handleScroll={handleScroll} direction='backward' />
+                            <Arrow handleScroll={handleScroll} direction='forward' />
                         </div>
                         : null}
                     {dropdown ? (<div className='dropdown-list-container'>
                         <div className='menu-icon-container'>
                             <MenuIcon handleDrop={this.handleDrop} />
                             {this.state.dropdownActive ? (<div className='dropdown-container'>
-                                <DropdownList itemList={itemList} handleClick={handleClick} handleHide={this.handleHide} handleClear={handleClear} handleChange={handleChange} searchField={searchField}/>
+                                <DropdownList
+                                    itemList={itemList} handleClick={handleClick}
+                                    handleHide={this.handleHide} handleClear={handleClear}
+                                    handleChange={handleChange} searchField={searchField} />
                             </div>) : null}
                         </div>
                     </div>

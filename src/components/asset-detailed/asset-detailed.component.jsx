@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
-import AssetMainInfo from '../asset-main-info/asset-main-info.component'
+import CardImage from '../card-image/card-image.component';
+import { CardInfo } from '../card-info/card-info.component';
 import AssetSubInfo from '../asset-sub-info/asset-sub-info.component'
 import AssetDocuments from '../asset-documents/asset-documents.component'
 
@@ -23,19 +24,26 @@ export class AssetDetailed extends React.Component {
     // }
 
     render() {
-        const { item } = this.props;
+        const { item, fields } = this.props;
 
         return (
             <div className='asset-detailed-container'>
                 {item ?
                     <div className='assetBox'>
-                    <Fragment>
-                        <AssetMainInfo item={item} />
-                        <AssetSubInfo item={item} />
-                        <AssetDocuments item={item} />
-                    </Fragment>
+                        <Fragment>
+                            <div className='card-info-detailed-container'>
+                                <div className='card-image-container'>
+                                    <CardImage item={item} />
+                                </div>
+                                <div className='card-info-container'>
+                                <CardInfo item={item} fields={fields} />
+                                </div>
+                            </div>
+                            <AssetSubInfo item={item} />
+                            <AssetDocuments item={item} />
+                        </Fragment>
                     </div>
-                    : <ErrorPage/>}
+                    : <ErrorPage />}
 
             </div>
 

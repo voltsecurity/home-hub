@@ -1,34 +1,22 @@
 import React from 'react';
 
-
+import CardImage from '../card-image/card-image.component';
 import { CardInfo } from '../card-info/card-info.component';
 import { CardActions } from '../card-actions/card-actions.components';
+
+import { handleActionUtil } from './card.utils';
 
 import './card.styles.scss';
 
 class Card extends React.Component {
+
     constructor(props) {
         super(props);
-        this.borderRed = {
-            border: '3px solid #c03636',
-            boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 10px rgba(236, 82, 82, 0.6)'
-        }
-
-        this.borderGreen = {
-            border: '3px solid #3bc036',
-            boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 8px rgba(82, 236, 108, 0.6)'
-        }
-
-        this.borderGreenFlash = {
-            border: '3px solid #3bc036',
-            boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 8px rgba(82, 236, 108, 0.6)',
-            animation: 'blinker 1s linear infinite'
-        }
 
         this.state = {
             actionsHidden: true,
-            doorStatus: 'locked',
-            borderColour: this.borderRed
+            deviceStatus: 'n/a',
+            borderColour: null
         }
 
     }
@@ -38,67 +26,37 @@ class Card extends React.Component {
         this.setState({ actionsHidden: !this.state.actionsHidden })
     }
 
-    handleAction = (e, name) => {
-        name = name.toLowerCase();
-        e.stopPropagation();
-        switch (name) {
-            case 'unlock':
-                this.setState({ doorStatus: 'unlocked' });
-                break;
-            case 'lock':
-                this.setState({ doorStatus: 'locked' });
-                break;
-            case 'grant access':
-                if (this.state.doorStatus === 'locked') {
-                    this.setState({ doorStatus: 'unlock timed' });
-                    setTimeout(() => {
-                        this.setState({ doorStatus: 'locked' })
-                    }, 5000);
-                }
-                break;
-            default:
-                console.log('Default switch case');
-        }
-    }
-
-    colourBorder = () => {
-        const { borderRed, borderGreen, borderGreenFlash } = this;
-        const { borderColour, doorStatus } = this.state;
-        switch (doorStatus) {
-            case 'unlocked':
-                return borderGreen
-            case 'locked':
-                return borderRed
-            case 'unlock timed':
-                return borderGreenFlash
-            default:
-                return borderColour;
-        }
+    handleAction = (...args) => {
+        return handleActionUtil.apply(this, args)
     }
 
 
     render() {
-        const { item, actions, id, handleLink } = this.props;
+        const { item, id, handleLink, filteredItems } = this.props;
+        const { fields, actions, category } = filteredItems;
 
         return (
             <div
                 id={id}
                 className='card'
-                style={this.colourBorder()}
-                onContextMenu={this.handleCardView}
+                style={this.state.borderColour}
                 onMouseEnter={this.handleCardView}
                 onMouseLeave={this.handleCardView}
             >
                 <div className='card-image-container'>
-                    <img className='card-image' src={item.imageUrl} alt="item" />
+                    <CardImage item={item} />
                 </div>
                 {this.state.actionsHidden ?
-                    <CardInfo item={item} status={this.state.doorStatus} /> :
+                    <div className='card-info-container'>
+                        <CardInfo item={item} fields={fields} status={this.state.deviceStatus} />
+                    </div> :
                     <div className='card-actions-wrapper' >
                         {
                             actions.map((action, index) => <CardActions
                                 key={index}
                                 item={item}
+                                fields={fields}
+                                category={category}
                                 name={action.name}
                                 action={action.action}
                                 handleAction={this.handleAction}

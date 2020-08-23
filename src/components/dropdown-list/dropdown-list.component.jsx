@@ -14,7 +14,7 @@ const DropdownList = ({ itemList, handleClick, handleHide, handleChange, handleC
                 </div>
             </div>
             <div className='dropdown-items'>
-                {itemList.map((item, index) => <MiniCard handleHide={handleHide} handleClick={handleClick} key={index} item={item} index={index} />)}
+                {itemList.info.map((item, index) => <MiniCard handleHide={handleHide} handleClick={handleClick} key={index} item={item} index={index} fields={itemList.fields} />)}
             </div>
 
         </div>

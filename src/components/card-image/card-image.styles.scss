@@ -1,0 +1,11 @@
+.card-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .card-image {
+        height: 100%;
+        border-radius: 50%;
+    }
+}

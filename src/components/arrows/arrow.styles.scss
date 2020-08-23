@@ -1,3 +1,17 @@
+.backward-arrow {
+    cursor: pointer;
+    height: 45px;
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+        transform: scale(1.08);
+    }
+
+    &:active {
+        transform: scale(1);
+    }
+}
+
 .forward-arrow {
     cursor: pointer;
     padding: 0 5px;
