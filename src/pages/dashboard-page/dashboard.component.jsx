@@ -1,32 +1,30 @@
-import React from 'react';
+import React from 'react'
 
 import AssetsContainer from '../../components/assets-container/assets-container.component';
 
-import { ACCESS_ASSET_DATA } from '../../database/asset-data';
+import { CCTV_ASSET_DATA } from '../../database/asset-data';
 
-import './access-control-page.styles.scss';
+import './dashboard.styles.scss';
 
-
-class AccessControlPage extends React.Component {
+class DashboardPage extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            itemDB: ACCESS_ASSET_DATA,
-            page: 'access'
+            itemDB: CCTV_ASSET_DATA,
+            page: 'dashboard'
         }
     }
 
     render() {
         const { itemDB, page } = this.state;
 
-        return (
+        return(
             <div>
                 <AssetsContainer itemDB={itemDB} page={page} />
             </div>
         )
     }
-
 }
 
-
-export default AccessControlPage;  
+export default DashboardPage;

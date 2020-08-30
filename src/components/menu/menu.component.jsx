@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 
-import { UserMenuDisplay } from '../user-menu-display/user-menu-display.component';
+import UserMenuDisplay from '../user-menu-display/user-menu-display.component';
 import { MenuItem } from '../menu-item/menu-item.component';
 
 import MENU_ITEM_DATA from './menu-items-data';
@@ -20,12 +20,16 @@ class Menu extends React.Component {
     }
 
     render() {
+        const { userIsLoggedIn, ...otherProps } = this.props;
+
         return (
             <div className='menu' >
-                <UserMenuDisplay />
+                <UserMenuDisplay userIsLoggedIn={userIsLoggedIn} {...otherProps} />
                 <div className='menu-items-container'>
-                    {MENU_ITEM_DATA.map((item, index) =>
-                        <MenuItem key={index} item={item} handleLink={this.handleLink} />)}
+                    {userIsLoggedIn ? 
+                    MENU_ITEM_DATA.map((item, index) =>
+                        <MenuItem key={index} item={item} handleLink={this.handleLink}
+                        />) : null}
                 </div>
             </div>
         )

@@ -1,0 +1,15 @@
+.custom-button-wrapper {
+    .custom-button {
+        cursor: pointer;
+        height: 35px;
+        width: 100px;
+        background: #0b0b0d;
+        border: 1px solid #dadce2;
+        border-radius: 8px;
+        color: white;
+
+        &:hover {
+            background: rgb(37, 37, 37);
+        }
+    }
+}

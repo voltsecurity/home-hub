@@ -48,6 +48,7 @@ class AssetsContainer extends Component {
 
     handleReturn = () => {
         const { history, match } = this.props;
+        console.log(match.url)
         history.push(`${match.url}`)
     }
 
@@ -57,7 +58,7 @@ class AssetsContainer extends Component {
 
 
     render() {
-        const { itemDB } = this.props
+        const { itemDB, page } = this.props
         const { searchField, contextMenu, position } = this.state;
         const filteredItems = Object.assign({}, itemDB);
         filteredItems.info = filteredItems.info.filter(item =>
@@ -66,7 +67,7 @@ class AssetsContainer extends Component {
         return (
             <div className='container' id='container'>
                 <Switch>
-                    <Route exact path={`/${itemDB.category}/:assetid`}
+                    <Route exact path={`/${page}/:assetid`}
                         render={props => (<div className='asset-container-box'>
                             <HeaderBar
                                 pageCounter
@@ -93,12 +94,11 @@ class AssetsContainer extends Component {
                                     item.name.toLowerCase() === props.match.params.assetid
                                 )} />
                         </div>)} />
-                    <Route exact strict path={`/${itemDB.category}`} render={props => (
+                    <Route exact strict path={`/${page}`} render={props => (
                         <div>
                             <HeaderBar
                                 searchField={searchField}
                                 searchBox
-                                goBack
                                 clear
                                 linkUrl={''}
                                 handleChange={this.handleChange}

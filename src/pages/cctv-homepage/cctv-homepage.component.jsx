@@ -10,17 +10,17 @@ class CCTVHomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            itemDB: CCTV_ASSET_DATA
-            
+            itemDB: CCTV_ASSET_DATA,
+            page: 'cctv'
         }
     }
 
     render() {
-        const { itemDB } = this.state;
+        const { itemDB, page } = this.state;
 
         return (
             <div>
-                <AssetsContainer itemDB={itemDB} />
+                <AssetsContainer itemDB={itemDB} page={page} />
             </div>
         )
     }

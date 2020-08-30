@@ -10,17 +10,17 @@ class IntruderHomepage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            itemDB: INTRUDER_ASSET_DATA
-            
+            itemDB: INTRUDER_ASSET_DATA,
+            page: 'intruder'
         }
     }
 
     render() {
-        const { itemDB } = this.state;
+        const { itemDB, page } = this.state;
 
         return (
             <div>
-                <AssetsContainer itemDB={itemDB} />
+                <AssetsContainer itemDB={itemDB} page={page}/>
             </div>
         )
     }

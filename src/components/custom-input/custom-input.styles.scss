@@ -1,0 +1,33 @@
+.custom-input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 70%;
+
+    .custom-icon-input {
+        background: #0b0b0d;
+        border: 1px solid #0b0b0d;
+        border-bottom: 1px solid rgb(70, 66, 66);
+        height: 35px;
+        width: 100%;
+        color: white;
+        text-indent: 50px;
+        font-size: 1em;
+
+        &:focus {
+            outline: none;
+            border-bottom:1px solid white;
+        }
+
+        &::placeholder {
+            font-size: 0.8em;
+            text-transform: capitalize;
+        }
+    }
+
+    .custom-icon-image {
+        position: absolute;
+        height: 20px;
+        padding-left: 10px;
+    }
+}

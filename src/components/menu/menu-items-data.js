@@ -10,7 +10,7 @@ const MENU_ITEMS_DATA = [
     {
         name: 'Dashboard',
         icon: dashIcon,
-        linkUrl: '/home'
+        linkUrl: '/dashboard'
     },
     {
         name: 'Access Control',

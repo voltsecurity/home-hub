@@ -7,7 +7,7 @@ const ErrorPage = () => (
     <div className='error-container'>
         <span className='error-page error' >ERROR 404:</span>
         <span className='error-page not-exist' >PAGE DOES NOT EXIST</span>
-        <Link className='error-page link-page' to='/assets/assetlist'>GO TO ASSET LIST</Link>
+        <Link className='error-page link-page' to='/'>GO TO HOMEPAGE</Link>
     </div>
 )
 
