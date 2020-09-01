@@ -26,13 +26,13 @@ class UserMenuDisplay extends React.Component {
     }
 
     render() {
-        const { displayName, email, userIsLoggedIn } = this.props;
+        const { username, email, userIsLoggedIn } = this.props;
 
         return (
             <div className='user-menu-display'>
                 <img className='user-image' src={userImage} alt="user" onClick={this.handleLink} />
                 <div className='user-info-container'>
-                    <span className='user-name'><strong>{displayName ? displayName : null}</strong></span>
+                    <span className='user-name'><strong>{username ? username : null}</strong></span>
                     <span className='user-id'>{email ? email : null}</span>
                     {userIsLoggedIn ?
                         <div className='sign-link sign-out-link' onClick={this.handleClick}>SignOut</div> :

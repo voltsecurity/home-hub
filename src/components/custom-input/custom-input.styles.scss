@@ -25,6 +25,22 @@
         }
     }
 
+    .border-green {
+        border-bottom: 1px solid rgba(16, 196, 10, 0.575);
+
+        &:focus {
+            border-bottom: 1px solid rgb(16, 196, 10);
+        }
+    }
+
+    .border-red {
+        border-bottom: 1px solid rgba(196, 10, 10, 0.616);
+
+        &:focus {
+            border-bottom: 1px solid rgb(196, 10, 10);
+        }
+    }
+
     .custom-icon-image {
         position: absolute;
         height: 20px;

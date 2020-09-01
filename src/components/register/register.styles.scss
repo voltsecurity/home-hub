@@ -1,5 +1,5 @@
 .register-wrapper {
-    height: 55%;
+    height: 500px;
     // height: 50%;
     width: 25%;
     background: #0b0b0d;
@@ -11,7 +11,6 @@
     .register-title {
         margin-top: 10px;
         font-size: 1.5em;
-
     }
 
     .sign-in-link {
@@ -21,12 +20,24 @@
         margin-bottom: 10px;
     }
 
+    .match-display-message {
+        height: 20px;
+        font-size: 0.75em;
+    }
+
+    .not-match-message {
+        color: red;
+    }
+
+    .match-message {
+        color: rgb(1, 241, 1);
+    }
+
     .register-form-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        height: 100%;
-        
+        height: 100%
     }
 }

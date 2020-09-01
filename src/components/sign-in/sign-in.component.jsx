@@ -22,13 +22,12 @@ class SignIn extends React.Component {
     }
 
     componentWillUnmount() {
-        this.setState({email: '', password: ''})
+        this.setState({ email: '', password: '' })
     }
 
     handleSubmit = async event => {
         event.preventDefault();
-        const {email, password} = this.state;
-        console.log(email, password);
+        const { email, password } = this.state;
 
         try {
             await auth.signInWithEmailAndPassword(email, password);
@@ -38,8 +37,8 @@ class SignIn extends React.Component {
     }
 
     handleChange = event => {
-        const { value, name} = event.target;
-        this.setState({[name]: value});
+        const { value, name } = event.target;
+        this.setState({ [name]: value });
     }
 
     render() {
@@ -47,13 +46,13 @@ class SignIn extends React.Component {
             <div className='sign-in-wrapper'>
                 <form className='sign-in-form-container' onSubmit={this.handleSubmit}>
                     <div className='sign-in-title'>LOGIN</div>
-                    <CustomInput type='email' label='email' icon={emailIcon} handleChange={this.handleChange} value={this.state.email}/>
+                    <CustomInput type='email' label='email' icon={emailIcon} handleChange={this.handleChange} value={this.state.email} />
                     <CustomInput type='password' label='password' icon={lockIcon} handleChange={this.handleChange} value={this.state.password} />
                     {/* <CustomInput type='text' label='pin code' icon={keypadIcon} /> */}
                     <CustomButton type='submit' value='SIGN IN' />
                     <Link className='register-link' to='/register'>Register</Link>
                 </form>
-    
+
             </div>
         )
     }

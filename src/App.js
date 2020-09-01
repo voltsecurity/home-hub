@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { auth } from './firebase/firebase.utils';
+import { auth, getUserProfileDocument } from './firebase/firebase.utils';
 
 // import { login } from './inception-api/inception.utils';
 
@@ -26,7 +26,7 @@ class App extends Component {
         this.INITIAL_STATE = {
             uid: '',
             email: '',
-            displayName: '',
+            username: '',
             userIsLoggedIn: false
         }
 
@@ -36,11 +36,12 @@ class App extends Component {
     unsubscribeFromAuth = null;
 
     componentDidMount = async () => {
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
             if (user) {
-                const { displayName, email, uid } = user;
-                console.log(displayName, email, uid);
-                this.setState({ uid, email, displayName, userIsLoggedIn: true }, () => console.log(this.state))
+                const { email, uid } = user;
+                const userData = await getUserProfileDocument(user);
+                const { username } = userData;
+                this.setState({ uid, email, username, userIsLoggedIn: true })
             } else {
                 this.setState({ userIsLoggedIn: false })
                 console.log('user not signed in');
@@ -57,30 +58,29 @@ class App extends Component {
     }
 
     render() {
-        let { userIsLoggedIn, email, displayName, uid } = this.state;
-        displayName = uid;
+        const { userIsLoggedIn, email, username } = this.state;
 
         return (
             <div className='App'>
-                { !userIsLoggedIn ? 
-                <Switch>
-                    <Route path='/signin' render={props => <SignInPage userIsLoggedIn={userIsLoggedIn} handleSignOut={this.handleSignOut} />} />
-                    <Route path='/' render={props => <SignInPage userIsLoggedIn={userIsLoggedIn} handleSignOut={this.handleSignOut} />} />
-                    <Route path='/register' render={props => <RegisterPage userIsLoggedIn={userIsLoggedIn} />} />
-                    <Route path='' component={ErrorPage} />
-                </Switch> :
-                <div className='app-menu-container'>
-                    <Menu userIsLoggedIn={userIsLoggedIn} handleSignOut={this.handleSignOut} email={email} displayName={displayName} />
-                    <div className='main'>
-                        <Switch>
-                            <PrivateRoute path='/dashboard' component={DashboardPage} userIsLoggedIn={userIsLoggedIn} />
-                            <PrivateRoute path='/cctv' component={CCTVHomepage} userIsLoggedIn={userIsLoggedIn} />
-                            <PrivateRoute path='/access' component={AccessHomepage} userIsLoggedIn={userIsLoggedIn} />
-                            <PrivateRoute path='/intruder' component={IntruderHomepage} userIsLoggedIn={userIsLoggedIn} />
-                        </Switch>
+                {!userIsLoggedIn ?
+                    <Switch>
+                        <Route path='/signin' render={props => <SignInPage userIsLoggedIn={userIsLoggedIn} handleSignOut={this.handleSignOut} />} />
+                        <Route exact path='/' render={props => <SignInPage userIsLoggedIn={userIsLoggedIn} handleSignOut={this.handleSignOut} />} />
+                        <Route path='/register' render={props => <RegisterPage userIsLoggedIn={userIsLoggedIn} />} />
+                        <Route path='' component={ErrorPage} />
+                    </Switch> :
+                    <div className='app-menu-container'>
+                        <Menu userIsLoggedIn={userIsLoggedIn} handleSignOut={this.handleSignOut} email={email} username={username} />
+                        <div className='main'>
+                            <Switch>
+                                <PrivateRoute path='/dashboard' component={DashboardPage} userIsLoggedIn={userIsLoggedIn} />
+                                <PrivateRoute path='/cctv' component={CCTVHomepage} userIsLoggedIn={userIsLoggedIn} />
+                                <PrivateRoute path='/access' component={AccessHomepage} userIsLoggedIn={userIsLoggedIn} />
+                                <PrivateRoute path='/intruder' component={IntruderHomepage} userIsLoggedIn={userIsLoggedIn} />
+                            </Switch>
+                        </div>
                     </div>
-                </div>
-            }
+                }
             </div>
         )
     }

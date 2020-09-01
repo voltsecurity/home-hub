@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import firestore from 'firebase/firestore';
+import 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -13,26 +13,50 @@ const firebaseConfig = {
     appId: "1:439241234742:web:fea2169c24e0973ad1fb97"
 }
 
+
 firebase.initializeApp(firebaseConfig);
 
+
 export const auth = firebase.auth();
+export const firestore = firebase.firestore();
 
 
-// auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-// });
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if (!userAuth) return;
+
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+    const snapShot = await userRef.get();
+
+    if (!snapShot.exists) {
+        const { email } = userAuth;
+        const createdAt = new Date();
+
+        try {
+            await userRef.set({
+                email,
+                createdAt,
+                ...additionalData
+            })
+        } catch (error) {
+            console.log('error creating user', error.message);
+        }
+    }
+    return userRef;
+}
 
 
-// current user
+export const getUserProfileDocument = async (userAuth) => {
+    if (!userAuth) return;
 
-// const user = auth.currentUser;
-
-// if(user) {
-
-// } else {
-    
-// }
-
+    try {
+        const userRef = firestore.doc(`users/${userAuth.uid}`);
+        const doc = await userRef.get();
+        const data = doc.data();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export default firebase;
