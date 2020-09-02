@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/home-hub/static/css/main.759a40d0.chunk.css",
+    "main.css": "/home-hub/static/css/main.4b470714.chunk.css",
     "main.js": "/home-hub/static/js/main.d21c4670.chunk.js",
     "main.js.map": "/home-hub/static/js/main.d21c4670.chunk.js.map",
     "runtime-main.js": "/home-hub/static/js/runtime-main.ef067b82.js",
@@ -8,9 +8,9 @@
     "static/js/2.90da796c.chunk.js": "/home-hub/static/js/2.90da796c.chunk.js",
     "static/js/2.90da796c.chunk.js.map": "/home-hub/static/js/2.90da796c.chunk.js.map",
     "index.html": "/home-hub/index.html",
-    "precache-manifest.69509a02837b3408c52e6346ed5b5c22.js": "/home-hub/precache-manifest.69509a02837b3408c52e6346ed5b5c22.js",
+    "precache-manifest.0fa11cc65d30784843d15b3399af123e.js": "/home-hub/precache-manifest.0fa11cc65d30784843d15b3399af123e.js",
     "service-worker.js": "/home-hub/service-worker.js",
-    "static/css/main.759a40d0.chunk.css.map": "/home-hub/static/css/main.759a40d0.chunk.css.map",
+    "static/css/main.4b470714.chunk.css.map": "/home-hub/static/css/main.4b470714.chunk.css.map",
     "static/js/2.90da796c.chunk.js.LICENSE.txt": "/home-hub/static/js/2.90da796c.chunk.js.LICENSE.txt",
     "static/media/access-door.png": "/home-hub/static/media/access-door.b62c8122.png",
     "static/media/cctv-bullet.png": "/home-hub/static/media/cctv-bullet.d446ddf5.png",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.ef067b82.js",
     "static/js/2.90da796c.chunk.js",
-    "static/css/main.759a40d0.chunk.css",
+    "static/css/main.4b470714.chunk.css",
     "static/js/main.d21c4670.chunk.js"
   ]
 }
